@@ -1,0 +1,42 @@
+CC=g++
+CFLAGS=-Wall -g -std=c++11 -pthread -DDEBUG -lGL -lGLU -lglut -lm -lX11
+
+launcher=neuron.out
+
+objectDir=bin
+srcDir=src
+
+directories=$(wildcard $(srcDir)/*/)
+
+cpp=$(foreach dir, $(directories), $(wildcard $(dir)*.cpp))
+
+headers=$(wildcard $(directories)*.hpp)
+
+objects=$(foreach file, $(cpp:.cpp=.o), $(objectDir)/$(notdir $(file)))
+
+all: $(launcher)
+
+$(launcher): compilation
+	$(CC) -o $(launcher) $(objects)
+
+compilation:
+	@mkdir $(objectDir) -p
+	@for dir in $(directories); do \
+		if [ ! -e $$dir/Makefile ]; then \
+				cp Makefile_type $$dir/Makefile; \
+		fi; \
+		make --no-print-directory -C $$dir objectDir=../../$(objectDir) headers="$(headers)" CC=$(CC) CFLAGS="$(CFLAGS)";	\
+	done
+
+clean_all: clean
+	rm $(launcher)
+
+clean:
+	@for dir in $(directories); do	\
+		make --no-print-directory -C $$dir clean objectDir=../../$(objectDir);	\
+	done
+
+clean_Makefile:
+	@for dir in $(directories); do	\
+		rm $$dir/Makefile;	\
+	done
