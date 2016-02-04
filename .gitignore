@@ -28,4 +28,4 @@
 *.app
 
 # Under Makefile
-src/*/Makefile
+testAllegro/src/*/Makefile
