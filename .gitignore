@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Under Makefile
+src/*/Makefile
