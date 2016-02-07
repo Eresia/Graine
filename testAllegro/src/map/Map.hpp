@@ -14,7 +14,9 @@
 
 	public:
 	    Map(int sizeX, int sizeY);
-		void addCase(int x, int y, CaseMap c);
+		void setCase(int x, int y, CaseMap c);
+		void setCaseMaterial(int x, int y, Material m);
+		void addObject(int x, int y, ObjectMap object);
 	};
 
 #endif

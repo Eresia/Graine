@@ -7,11 +7,19 @@ Map::Map(int sizeX, int sizeY){
 	for(int i = 0; i < sizeX; i++){
 		map[i] = (CaseMap*) malloc(sizeY*(sizeof(CaseMap)));
 		for(int j = 0; j < sizeY; j++){
-			map[i][j] = NULL;
+			map[i][j] = CaseMap();
 		}
 	}
 }
 
-void Map::addCase(int x, int y, CaseMap c){
+void Map::setCase(int x, int y, CaseMap c){
+	map[x][y] = c;
+}
 
+void Map::setCaseMaterial(int x, int y, Material m){
+	map[x][y].setMaterial(m);
+}
+
+void Map::addObject(int x, int y, ObjectMap object){
+	map[x][y].addObject(object);
 }
