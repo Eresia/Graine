@@ -5,7 +5,8 @@
 	#include <string>
 	#include <vector>
 	#include <algorithm>
-	#include "object/ObjectMap.hpp"
+	#include "object/ObjectFood.hpp"
+	#include "object/ObjectWater.hpp"
 	#include "object/TypeObject.hpp"
 	#include "Material.hpp"
 	#include "../usefull/Usefull.hpp"
@@ -19,6 +20,7 @@
 
 	public:
 	    CaseMap();
+		~CaseMap();
 		void setMaterial(Material material);
 		void addObject(TypeObject object);
 		void removeObject(ObjectMap object);

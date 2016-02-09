@@ -1,6 +1,7 @@
 #ifndef OBJECT_MAP
 #define OBJECT_MAP
 
+	#include <iostream>
 	#include <string>
 	#include <vector>
 
@@ -11,6 +12,7 @@
 
 	public:
 	    ObjectMap(int id);
+		~ObjectMap();
 		int getId();
 
 		bool operator==(ObjectMap const& other);

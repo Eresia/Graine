@@ -4,7 +4,10 @@ using namespace std;
 
 CaseMap::CaseMap(){
 	material = NOTHING;
-	std::cout << this->objects.size() << std::endl;
+}
+
+CaseMap::~CaseMap(){
+
 }
 
 void CaseMap::setMaterial(Material material){
@@ -12,9 +15,16 @@ void CaseMap::setMaterial(Material material){
 }
 
 void CaseMap::addObject(TypeObject type){
-	/*swich(TypeObject){
-		case
-	}*/
+	switch(type){
+		case FOOD:
+			objects.push_back(ObjectFood(objects.size()));
+			break;
+		case WATER:
+			objects.push_back(ObjectWater(objects.size()));
+			break;
+		default:
+			throw BadMapObjectException("Bad type");
+	}
 }
 
 void CaseMap::removeObject(ObjectMap object){

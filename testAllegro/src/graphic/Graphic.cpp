@@ -2,26 +2,41 @@
 
 using namespace std;
 
-Graphic::Graphic(){
+Graphic::Graphic(Map map){
 
 	ALLEGRO_DISPLAY *display = NULL;
+	ALLEGRO_BITMAP* sky, *dirt;
+	double sizeImageW = WIDTH/NB_CASE_W;
+	double sizeImageH = HEIGHT/NB_CASE_H;
 
-   if(!al_init()) {
-      cout << "failed to initialize allegro!\n" << endl;
-      return ;
-   }
+	if(!al_init()) {
+		cout << "failed to initialize allegro!\n" << endl;
+		return ;
+	}
 
-   display = al_create_display(640, 480);
-   if(!display) {
-      cout << "failed to create display!\n" << endl;
-      return ;
-   }
+	sky = al_load_bitmap("images/sky.bmp");
+	dirt = al_load_bitmap("images/dirt.bmp");
 
-   al_clear_to_color(al_map_rgb(0,0,0));
+	if(!sky || !dirt){
+		cout << "failed to load images!\n" << endl;
+		return ;
+	}
 
-   al_flip_display();
+	display = al_create_display(WIDTH, HEIGHT);
+	if(!display) {
+		cout << "failed to create display!\n" << endl;
+		return ;
+	}
 
-   al_rest(10.0);
+	for(int i = 0; i < NB_CASE_H; i++){
+		for(int j = 0; j < NB_CASE_W; j++){
+			//blit(sky, display,0,0, (sizeImageW*i), (sizeImageH*j), sizeImageW, sizeImageH);
+		}
+	}
 
-   al_destroy_display(display);
+	al_flip_display();
+
+	al_rest(10.0);
+
+	al_destroy_display(display);
 }

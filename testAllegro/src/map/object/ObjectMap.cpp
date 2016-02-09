@@ -4,6 +4,10 @@ ObjectMap::ObjectMap(int id){
 	this->id = id;
 }
 
+ObjectMap::~ObjectMap(){
+	
+}
+
 int ObjectMap::getId(){
 	return id;
 }

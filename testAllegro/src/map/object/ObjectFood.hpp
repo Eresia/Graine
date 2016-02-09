@@ -7,6 +7,10 @@
 
 class ObjectFood : public ObjectMap{
 
+	private:
+
+	public:
+		ObjectFood(int id);
 };
 
 #endif

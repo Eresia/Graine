@@ -7,6 +7,10 @@
 
 class ObjectWater : public ObjectMap{
 
+	private:
+
+	public:
+		ObjectWater(int id);
 };
 
 #endif
