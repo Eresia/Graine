@@ -15,9 +15,9 @@
 		public:
 
 			BadMapObjectException(string const& phrase="") throw();
+			virtual ~BadMapObjectException() throw();
 
 			virtual const char* what() const throw();
-			virtual ~BadMapObjectException() throw();
 	};
 
 #endif
