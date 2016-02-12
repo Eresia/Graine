@@ -4,6 +4,7 @@
 	#include <iostream>
 	#include <string>
 	#include <allegro5/allegro.h>
+	#include <allegro5/allegro_image.h>
 	#include <map>
 	#include "../map/Map.hpp"
 	#include "../exception/WindowNotCreatedException.hpp"

@@ -7,7 +7,7 @@ Graphic::Graphic(Map* map){
 	display = NULL;
 	this->map = map;
 
-	if(!al_init()) {
+	if(!al_init() || !al_init_image_addon()) {
 		throw WindowNotCreatedException("Failed to initialize allegro !");
 	}
 
@@ -27,13 +27,19 @@ Graphic::Graphic(Map* map){
 
 void Graphic::display_map(){
 
-	double sizeImageW = WIDTH/NB_CASE_W;
-	double sizeImageH = HEIGHT/NB_CASE_H;
+	double sizeImageW = (double) (WIDTH)/ (double) (NB_CASE_W);
+	double sizeImageH = (double) (HEIGHT)/(double) (NB_CASE_H);
+
+	cout << "width : " << sizeImageW << " - " << al_get_bitmap_width(textures["dirt"]) << endl;
+	cout << "height : " << sizeImageH << " - " << al_get_bitmap_height(textures["dirt"]) << endl;
 
 	for(int i = 0; i < NB_CASE_H; i++){
 		for(int j = 0; j < NB_CASE_W; j++){
 			//blit(sky, display,0,0, (sizeImageW*i), (sizeImageH*j), sizeImageW, sizeImageH);
-			al_draw_bitmap(textures["sky"], (sizeImageW*i), (sizeImageH*j),  0);
+			//al_draw_bitmap(textures["dirt"], (sizeImageW*i), (sizeImageH*j),  0);
+			//cout << "i, j " << i << ',' << j << endl;
+			al_draw_scaled_bitmap(textures["dirt"], 0, 0, al_get_bitmap_width(textures["dirt"]), al_get_bitmap_height(textures["dirt"]),
+				(sizeImageW*j), (sizeImageH*i), sizeImageW, sizeImageH, 0);
 		}
 	}
 

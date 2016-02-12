@@ -5,11 +5,8 @@ Map::Map(int sizeX, int sizeY){
 	this->sizeY = sizeY;
 	map = (CaseMap**) malloc(sizeX*(sizeof(CaseMap*)));
 	for(int i = 0; i < sizeX; i++){
-		cout << i << "a" << endl;
-		map[i] = (CaseMap*) malloc(sizeY*(sizeof(CaseMap)));
-		cout << "b" << endl;
+		map[i] = new CaseMap[sizeY];
 		for(int j = 0; j < sizeY; j++){
-			//cout << "i : " << i << ", j : " << j << endl;
 			map[i][j] = CaseMap();
 		}
 	}
@@ -18,7 +15,7 @@ Map::Map(int sizeX, int sizeY){
 Map::~Map(){
 	for(int i = 0; i < sizeX; i++){
 		for(int j = 0; j < sizeY; j++){
-			std::free(&map[i][j]);
+			delete &map[i][j];
 		}
 		std::free(map[i]);
 	}
