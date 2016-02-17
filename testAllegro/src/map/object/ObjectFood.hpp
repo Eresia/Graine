@@ -11,6 +11,7 @@ class ObjectFood : public ObjectMap{
 
 	public:
 		ObjectFood(int id);
+		virtual TypeObject getType();
 };
 
 #endif

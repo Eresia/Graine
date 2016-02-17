@@ -11,6 +11,7 @@ class ObjectWater : public ObjectMap{
 
 	public:
 		ObjectWater(int id);
+		virtual TypeObject getType();
 };
 
 #endif

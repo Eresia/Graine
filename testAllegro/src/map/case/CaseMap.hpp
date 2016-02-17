@@ -5,12 +5,12 @@
 	#include <string>
 	#include <vector>
 	#include <algorithm>
-	#include "object/ObjectFood.hpp"
-	#include "object/ObjectWater.hpp"
-	#include "object/TypeObject.hpp"
-	#include "Material.hpp"
-	#include "../usefull/Usefull.hpp"
-	#include "../exception/BadMapObjectException.hpp"
+	#include "../object/ObjectFood.hpp"
+	#include "../object/ObjectWater.hpp"
+	#include "../object/TypeObject.hpp"
+	#include "../Material.hpp"
+	#include "../../usefull/Usefull.hpp"
+	#include "../../exception/BadMapObjectException.hpp"
 
 	class CaseMap{
 

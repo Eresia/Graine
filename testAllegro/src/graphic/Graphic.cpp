@@ -30,9 +30,6 @@ void Graphic::display_map(){
 	double sizeImageW = (double) (WIDTH)/ (double) (NB_CASE_W);
 	double sizeImageH = (double) (HEIGHT)/(double) (NB_CASE_H);
 
-	cout << "width : " << sizeImageW << " - " << al_get_bitmap_width(textures["dirt"]) << endl;
-	cout << "height : " << sizeImageH << " - " << al_get_bitmap_height(textures["dirt"]) << endl;
-
 	for(int i = 0; i < NB_CASE_H; i++){
 		for(int j = 0; j < NB_CASE_W; j++){
 			//blit(sky, display,0,0, (sizeImageW*i), (sizeImageH*j), sizeImageW, sizeImageH);

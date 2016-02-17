@@ -4,7 +4,7 @@
 	#include <iostream>
 	#include <string>
 	#include <vector>
-	#include "CaseMap.hpp"
+	#include "case/CaseMap.hpp"
 
 	class Map{
 

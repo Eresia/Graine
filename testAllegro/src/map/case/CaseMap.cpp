@@ -16,10 +16,10 @@ void CaseMap::setMaterial(Material material){
 
 void CaseMap::addObject(TypeObject type){
 	switch(type){
-		case FOOD:
+		case OBJECT_FOOD:
 			objects.push_back(ObjectFood(objects.size()));
 			break;
-		case WATER:
+		case OBJECT_WATER:
 			objects.push_back(ObjectWater(objects.size()));
 			break;
 		default:

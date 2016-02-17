@@ -4,6 +4,7 @@
 	#include <iostream>
 	#include <string>
 	#include <vector>
+	#include "TypeObject.hpp"
 
 	class ObjectMap{
 
@@ -14,6 +15,7 @@
 	    ObjectMap(int id);
 		~ObjectMap();
 		int getId();
+		virtual TypeObject getType() = 0;
 
 		bool operator==(ObjectMap const& other);
 		bool operator!=(ObjectMap const& other);
