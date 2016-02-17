@@ -1,5 +1,5 @@
-#ifndef OBJECT_FOOD
-#define OBJECT_FOOD
+#ifndef OBJECT_FOOD_HPP
+#define OBJECT_FOOD_HPP
 
 #include <iostream>
 #include <string>

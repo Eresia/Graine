@@ -3,18 +3,22 @@
 using namespace std;
 
 CaseMap::CaseMap(){
-	material = NOTHING;
+	material = AirMaterial::getInstance();
 }
 
 CaseMap::~CaseMap(){
-
+	delete material;
 }
 
-void CaseMap::setMaterial(Material material){
+void CaseMap::setMaterial(Material* material){
 	this->material = material;
 }
 
-void CaseMap::addObject(TypeObject type){
+Material* CaseMap::getMaterial(){
+	return material;
+}
+
+/*void CaseMap::addObject(TypeObject type){
 	switch(type){
 		case OBJECT_FOOD:
 			objects.push_back(ObjectFood(objects.size()));
@@ -34,3 +38,4 @@ void CaseMap::removeObject(ObjectMap object){
 		objects.erase(it);
 	}
 }
+*/

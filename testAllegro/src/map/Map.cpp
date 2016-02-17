@@ -10,6 +10,7 @@ Map::Map(int sizeX, int sizeY){
 			map[i][j] = CaseMap();
 		}
 	}
+	//generate(sizeX, sizeY, map);
 }
 
 Map::~Map(){
@@ -26,11 +27,11 @@ void Map::setCase(int x, int y, CaseMap c){
 	map[x][y] = c;
 }
 
-void Map::setCaseMaterial(int x, int y, Material m){
+void Map::setCaseMaterial(int x, int y, Material* m){
 	map[x][y].setMaterial(m);
 }
 
-void Map::addObject(int x, int y, TypeObject object){
+/*void Map::addObject(int x, int y, TypeObject object){
 	try{
 		map[x][y].addObject(object);
 	}
@@ -38,4 +39,4 @@ void Map::addObject(int x, int y, TypeObject object){
 		cout << "Object not added in Map" << endl;
 		throw e;
 	}
-}
+}*/

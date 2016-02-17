@@ -1,5 +1,5 @@
-#ifndef OBJECT_WATER
-#define OBJECT_WATER
+#ifndef OBJECT_WATER_HPP
+#define OBJECT_WATER_HPP
 
 #include <iostream>
 #include <string>
