@@ -1,9 +1,11 @@
 #include "FoodMaterial.hpp"
 
+Material* FoodMaterial::instance = new FoodMaterial();
+
 FoodMaterial::FoodMaterial() : Material(){}
 
 FoodMaterial::~FoodMaterial(){
-	Material::~Material();
+	//Material::~Material();
 }
 
 Material* FoodMaterial::getInstance(){

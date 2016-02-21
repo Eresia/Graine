@@ -7,6 +7,7 @@
 class AirMaterial : public Material {
 
 	private:
+		static Material* instance;
 
 	public:
 		AirMaterial();

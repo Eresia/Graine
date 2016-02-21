@@ -7,6 +7,7 @@
 class FoodMaterial : public Material {
 
 	private:
+		static Material* instance;
 
 	public:
 		FoodMaterial();

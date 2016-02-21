@@ -7,6 +7,7 @@
 class DirtMaterial : public Material {
 
 	private:
+		static Material* instance;
 
 	public:
 		DirtMaterial();

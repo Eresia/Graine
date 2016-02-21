@@ -1,9 +1,11 @@
 #include "DirtMaterial.hpp"
 
+Material* DirtMaterial::instance = new DirtMaterial();
+
 DirtMaterial::DirtMaterial() : Material(){}
 
 DirtMaterial::~DirtMaterial(){
-	Material::~Material();
+	//Material::~Material();
 }
 
 Material* DirtMaterial::getInstance(){

@@ -7,6 +7,7 @@
 class WaterMaterial : public Material {
 
 	private:
+		static Material* instance;
 
 	public:
 		WaterMaterial();

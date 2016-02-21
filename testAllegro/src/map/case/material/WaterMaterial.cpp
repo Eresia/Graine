@@ -1,9 +1,11 @@
 #include "WaterMaterial.hpp"
 
+Material* WaterMaterial::instance = new WaterMaterial();
+
 WaterMaterial::WaterMaterial() : Material(){}
 
 WaterMaterial::~WaterMaterial(){
-	Material::~Material();
+	//Material::~Material();
 }
 
 Material* WaterMaterial::getInstance(){

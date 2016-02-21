@@ -1,15 +1,14 @@
 #include "AirMaterial.hpp"
 
+Material* AirMaterial::instance = new AirMaterial();
+
 AirMaterial::AirMaterial() : Material(){}
 
 AirMaterial::~AirMaterial(){
-	Material::~Material();
+	//Material::~Material();
 }
 
 Material* AirMaterial::getInstance(){
-	if(instance == NULL){
-		instance = new AirMaterial();
-	}
 	return instance;
 }
 
