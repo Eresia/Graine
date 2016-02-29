@@ -13,14 +13,6 @@
 	#include "../exception/WindowNotCreatedException.hpp"
 	#include "../exception/EventListNotCreatedException.hpp"
 
-	#define HEIGHT 700 //Taille de la fenêtre
-	#define WIDTH 1000
-	#define NB_CASE_H 30
-	#define NB_CASE_W 42
-
-	#define SIZE_IMAGE_W ((double) (WIDTH)/ (double) (NB_CASE_W))
-	#define SIZE_IMAGE_H ((double) (HEIGHT)/(double) (NB_CASE_H))
-
 	class Graphic{
 
 		private:

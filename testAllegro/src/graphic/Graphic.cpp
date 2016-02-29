@@ -71,6 +71,8 @@ void Graphic::display_loop(){
 	creature->turnLeft();
 	creature->turnLeft();
 	creature->turnLeft();
+	creature->turnLeft();
+	creature->turnLeft();
 	while(!close){
 		ALLEGRO_EVENT event = { 0 };
 		al_wait_for_event_timed(queue, &event, 1.0 / 10);
@@ -79,9 +81,8 @@ void Graphic::display_loop(){
 			close = true;
 		}
 		else{
-			usleep(200000);
+			usleep(100000);
 		}
-
 		creature->move();
 	}
 

@@ -13,11 +13,17 @@ void Creature::move(){
 }
 
 void Creature::turnLeft(){
-	rotation += (M_PI/12);
+	rotation -= (M_PI/12);
+	if(rotation <= (-2*M_PI)){
+		rotation += 2*M_PI;
+	}
 }
 
 void Creature::turnRight(){
-	rotation -= (M_PI/12);
+	rotation += (M_PI/12);
+	if(rotation >= (2*M_PI)){
+		rotation -= 2*M_PI;
+	}
 }
 
 Position& Creature::getPosition(){
