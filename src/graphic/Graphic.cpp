@@ -51,7 +51,7 @@ void Graphic::display_map(){
 
 	for(int i = 0; i < (int) creatures.size(); i++){
 		Position posCrea = creatures[i].getPosition();
-		al_draw_rotated_bitmap(creatTexture, widthCrea/2, heigthCrea/2, posCrea.getX() + widthCrea/2, posCrea.getY() + heigthCrea/2, creatures[i].getRotation(),0);
+		al_draw_rotated_bitmap(creatTexture, widthCrea/2, heigthCrea/2, posCrea.getY() + widthCrea/2, posCrea.getX() + heigthCrea/2, creatures[i].getRotation(),0);
 		al_flip_display();
 	}
 }
@@ -79,6 +79,7 @@ void Graphic::display_loop(){
 			double x = mapObj.getObjective().getX() - creatures[i].getPosition().getX();
 			double y = mapObj.getObjective().getY() - creatures[i].getPosition().getY();
 			creatures[i].think(x, y);
+			//creatures[i].move(10);
 		}
 	}
 

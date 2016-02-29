@@ -12,18 +12,18 @@ int main(int argc, char** argv){
 	MapObjective map(NB_CASE_H,NB_CASE_W);
 	vector<Creature> creatures;
 
-	for(int i = 0; i < 1; i++){
+	for(int i = 0; i < 10; i++){
 		double spawnX;
 		double spawnY;
-		Position pos;
+		Position* pos;
 
 		do{
-			spawnX = rand() % NB_CASE_W;
-			spawnY = rand() % NB_CASE_H;
+			spawnY = rand() % (NB_CASE_W-1);
+			spawnX = rand() % (NB_CASE_H-1);
 		}while(map.getCaseMaterial(spawnX, spawnY) == FoodMaterial::getInstance());
 
-		pos = Position(spawnX*SIZE_IMAGE_H, spawnY*SIZE_IMAGE_W);
-		creatures.push_back(Creature(pos, 10));
+		pos = new Position(spawnX*SIZE_IMAGE_H, spawnY*SIZE_IMAGE_W);
+		creatures.push_back(Creature(*pos, 10));
 	}
 
 	try{

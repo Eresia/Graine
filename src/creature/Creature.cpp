@@ -18,7 +18,7 @@ void Creature::think(double info1, double info2){
 }
 
 void Creature::move(int speed){
-	position.updatePosition(cos(rotation) * speed, sin(rotation) * speed);
+	position.updatePosition(sin(rotation) * speed, cos(rotation) * speed);
 }
 
 void Creature::move(double forceLeft, double forceRight){
