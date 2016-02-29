@@ -10,6 +10,7 @@ void Creature::think(double info1, double info2){
 	info.push_back(info2);
 	try{
 		info = brain.update(info);
+		cout << info[0] << " " << info[1] << endl;
 		move(info[0], info[1]);
 	} catch(BadNumberOfInputException e){
 		cout << "Bad number of info" << endl;

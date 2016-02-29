@@ -18,8 +18,8 @@ int main(int argc, char** argv){
 		Position pos;
 
 		do{
-			spawnX = rand() % map.getSizeX();
-			spawnY = rand() % map.getSizeY();
+			spawnX = rand() % NB_CASE_W;
+			spawnY = rand() % NB_CASE_H;
 		}while(map.getCaseMaterial(spawnX, spawnY) == FoodMaterial::getInstance());
 
 		pos = Position(spawnX*SIZE_IMAGE_H, spawnY*SIZE_IMAGE_W);

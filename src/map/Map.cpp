@@ -10,13 +10,13 @@ Map::Map(int sizeX, int sizeY){
 }
 
 Map::~Map(){
-	for(int i = 0; i < sizeX; i++){
+	/*for(int i = 0; i < sizeX; i++){
 		for(int j = 0; j < sizeY; j++){
 			delete &map[i][j];
 		}
 		std::free(map[i]);
 	}
-	delete[] map;
+	delete[] map;*/
 }
 
 void Map::setCase(int x, int y, CaseMap c){

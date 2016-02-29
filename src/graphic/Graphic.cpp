@@ -73,12 +73,12 @@ void Graphic::display_loop(){
 			close = true;
 		}
 		else{
-			usleep(100000);
+			usleep(10000);
 		}
 		for(int i = 0; i < (int) creatures.size(); i++){
 			double x = mapObj.getObjective().getX() - creatures[i].getPosition().getX();
 			double y = mapObj.getObjective().getY() - creatures[i].getPosition().getY();
-			//creatures[i].think(x, y);
+			creatures[i].think(x, y);
 		}
 	}
 
