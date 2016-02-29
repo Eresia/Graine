@@ -28,7 +28,7 @@
 		int getSizeX();
 		int getSizeY();
 		void setSpawn(int x, int y);
-		Position* getSpawn();
+		Position getSpawn();
 	};
 
 #endif

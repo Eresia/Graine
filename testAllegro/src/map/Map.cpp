@@ -52,6 +52,6 @@ void Map::setSpawn(int x, int y){
 	spawn.setPosition(x, y);
 }
 
-Position* Map::getSpawn(){
-	return &spawn;
+Position Map::getSpawn(){
+	return spawn;
 }

@@ -9,13 +9,13 @@ class Position {
 
 	public:
 		Position();
-		Position(int x, int y);
+		Position(double x, double y);
 		Position(Position& copy);
-		int getX();
-		int getY();
-		void setX(int x);
-		void setY(int y);
-		void setPosition(int x, int y);
+		double getX();
+		double getY();
+		void setX(double x);
+		void setY(double y);
+		void setPosition(double x, double y);
 };
 
 #endif
