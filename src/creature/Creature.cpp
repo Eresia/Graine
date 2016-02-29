@@ -1,15 +1,30 @@
 #include "Creature.hpp"
 
-Creature::Creature(Position& position, double speed) : position(position), rotation(0), speed(speed){
+Creature::Creature(Position& position, double speed) : position(position), rotation(0), brain(NeuronNetwork(2, 2, 1, 6)){
 
 }
 
-void Creature::move(){
-	double posX = position.getX();
-	double posY = position.getY();
-	double deltaX = cos(rotation);
-	double deltaY = sin(rotation);
-	position.setPosition(posX + deltaX, posY + deltaY);
+void Creature::think(double info1, double info2){
+	vector<double> info;
+	info.push_back(info1);
+	info.push_back(info2);
+	try{
+		info = brain.update(info);
+		move(info[0], info[1]);
+	} catch(BadNumberOfInputException e){
+		cout << "Bad number of info" << endl;
+		cout << e.what() << endl;
+	}
+}
+
+void Creature::move(int speed){
+	position.updatePosition(cos(rotation) * speed, sin(rotation) * speed);
+}
+
+void Creature::move(double forceLeft, double forceRight){
+	double force = forceRight - forceLeft;
+	rotation += force;
+	move(forceRight + forceLeft);
 }
 
 void Creature::turnLeft(){
@@ -40,12 +55,4 @@ double Creature::getRotation(){
 
 void Creature::setRotation(double rotation){
 	this->rotation = rotation;
-}
-
-double Creature::getSpeed(){
-	return speed;
-}
-
-void Creature::setSpeed(double speed){
-	this->speed = speed;
 }

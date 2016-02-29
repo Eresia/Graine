@@ -7,17 +7,21 @@
 #include <algorithm>
 #include <cmath>
 #include "../map/Position.hpp"
+#include "../neuronNetwork/NeuronNetwork.hpp"
+#include "../exception/BadNumberOfInputException.hpp"
 
 class Creature{
 
 	private:
 		Position& position;
 		double rotation;
-		double speed;
+		NeuronNetwork brain;
 
 	public:
 		Creature(Position& position, double speed);
-		void move();
+		void think(double info1, double info2);
+		void move(int speed);
+		void move(double forceLeft, double forceRight);
 		void turnLeft();
 		void turnRight();
 

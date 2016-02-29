@@ -7,7 +7,6 @@ Map::Map(int sizeX, int sizeY){
 	for(int i = 0; i < sizeX; i++){
 		map[i] = new CaseMap[sizeY];
 	}
-	spawn = Position();
 }
 
 Map::~Map(){
@@ -46,12 +45,4 @@ int Map::getSizeX(){
 
 int Map::getSizeY(){
 	return sizeY;
-}
-
-void Map::setSpawn(int x, int y){
-	spawn.setPosition(x, y);
-}
-
-Position Map::getSpawn(){
-	return spawn;
 }

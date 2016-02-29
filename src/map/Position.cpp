@@ -30,7 +30,20 @@ void Position::setY(double y){
 	this->y = y;
 }
 
+void Position::updateX(double deltaX){
+	x += deltaX;
+}
+
+void Position::updateY(double deltaY){
+	y += deltaY;
+}
+
 void Position::setPosition(double x, double y){
 	this->x = x;
 	this->y = y;
+}
+
+void Position::updatePosition(double deltaX, double deltaY){
+	x += deltaX;
+	y += deltaY;
 }

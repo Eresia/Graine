@@ -20,7 +20,6 @@
 	private:
 		int sizeX, sizeY;
 		CaseMap** map;
-		Position spawn;
 
 	public:
 	    //Map(int sizeX, int sizeY, void (Map::*generate)(int sizeX, int sizeY, CaseMap** map));
@@ -35,8 +34,6 @@
 		CaseMap** getMap();
 		int getSizeX();
 		int getSizeY();
-		void setSpawn(int x, int y);
-		Position getSpawn();
 	};
 
 #endif

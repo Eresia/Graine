@@ -15,7 +15,10 @@ class Position {
 		double getY();
 		void setX(double x);
 		void setY(double y);
+		void updateX(double deltaX);
+		void updateY(double deltaY);
 		void setPosition(double x, double y);
+		void updatePosition(double deltaX, double deltaY);
 };
 
 #endif

@@ -8,6 +8,7 @@
 	#include "allegro5/allegro_native_dialog.h"
 	#include <map>
 	#include "../map/Map.hpp"
+	#include "../map/mapType/MapObjective.hpp"
 	#include "../creature/Creature.hpp"
 	#include "../map/Position.hpp"
 	#include "../exception/WindowNotCreatedException.hpp"
@@ -16,14 +17,14 @@
 	class Graphic{
 
 		private:
-			Map* map;
-			Creature* creature;
+			Map& map;
+			vector<Creature>& creatures;
 			ALLEGRO_DISPLAY *display;
 			std::map<TypeMaterial, ALLEGRO_BITMAP*> textures;
 			ALLEGRO_BITMAP* creatTexture;
 
 		public:
-		    Graphic(Map* map, Creature* creature);
+		    Graphic(Map& map, vector<Creature>& creatures);
 			void display_map();
 			void display_loop();
 			void display_destroy();
