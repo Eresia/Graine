@@ -4,7 +4,7 @@ using namespace std;
 
 Neuron::Neuron(int nbInput) : nbInput(nbInput){
 	for(int i = 0; i < nbInput; i++){
-		mult.push_back(RandFloat(10));
+		mult.push_back(RandomClamped());
 	}
 }
 
@@ -17,8 +17,7 @@ double Neuron::stimule(vector<double> stim){
 	for(int i = 0; i < nbInput; i++){
 		sumWeight += stim[i] * mult[i];
 	}
-
-	return fonct(sumWeight);
+	return sumWeight/nbInput;
 }
 
 double Neuron::fonct(double value){
