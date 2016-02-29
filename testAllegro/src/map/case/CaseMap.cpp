@@ -3,6 +3,7 @@
 using namespace std;
 
 CaseMap::CaseMap(){
+	cout << "lol" << endl;
 	material = AirMaterial::getInstance();
 }
 

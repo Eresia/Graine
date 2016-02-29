@@ -3,12 +3,10 @@
 Map::Map(int sizeX, int sizeY){
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
-	map = (CaseMap**) malloc(sizeX*(sizeof(CaseMap*)));
+	map = new CaseMap*[sizeX];
 	for(int i = 0; i < sizeX; i++){
+		cout << "i : " << i << endl;
 		map[i] = new CaseMap[sizeY];
-		for(int j = 0; j < sizeY; j++){
-			map[i][j] = CaseMap();
-		}
 	}
 	//generate(sizeX, sizeY, map);
 }
