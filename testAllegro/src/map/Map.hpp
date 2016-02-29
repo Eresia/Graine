@@ -5,12 +5,14 @@
 	#include <string>
 	#include <vector>
 	#include "case/CaseMap.hpp"
+	#include "Position.hpp"
 
 	class Map{
 
 	private:
 		int sizeX, sizeY;
 		CaseMap** map;
+		Position spawn;
 
 	public:
 	    //Map(int sizeX, int sizeY, void (Map::*generate)(int sizeX, int sizeY, CaseMap** map));
@@ -18,8 +20,15 @@
 		~Map();
 		virtual void generate() = 0;
 		void setCase(int x, int y, CaseMap c);
+		CaseMap getCase(int x, int y);
 		void setCaseMaterial(int x, int y, Material* m);
-		//void addObject(int x, int y, TypeObject object);
+		Material* getCaseMaterial(int x, int y);
+
+		CaseMap** getMap();
+		int getSizeX();
+		int getSizeY();
+		void setSpawn(int x, int y);
+		Position* getSpawn();
 	};
 
 #endif

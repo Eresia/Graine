@@ -11,11 +11,21 @@ Graphic::Graphic(Map* map){
 		throw WindowNotCreatedException("Failed to initialize allegro !");
 	}
 
-	textures["sky"] = al_load_bitmap("images/sky.bmp");
-	textures["dirt"] = al_load_bitmap("images/dirt.bmp");
+	textures[MATERIAL_AIR] = al_load_bitmap("images/sky.bmp");
+	textures[MATERIAL_DIRT] = al_load_bitmap("images/dirt.bmp");
+	textures[MATERIAL_FOOD] = al_load_bitmap("images/apple.bmp");
+	textures[MATERIAL_WATER] = al_load_bitmap("images/water.bmp");
+	creatTexture = al_load_bitmap("images/creature.bmp");
 
-	if(!textures["sky"] || !textures["dirt"]){
-		throw WindowNotCreatedException("Failed to load images !");
+	for(std::map<TypeMaterial, ALLEGRO_BITMAP*>::iterator it=textures.begin() ; it!=textures.end() ; ++it)
+	{
+		if(!it->second){
+			throw WindowNotCreatedException("Failed to load image " + to_string(it->first) + " !");
+		}
+	}
+
+	if(!creatTexture){
+		throw WindowNotCreatedException("Failed to load image of creature !");
 	}
 
 	display = al_create_display(WIDTH, HEIGHT);
@@ -27,22 +37,46 @@ Graphic::Graphic(Map* map){
 
 void Graphic::display_map(){
 
+	Position* spawn = map->getSpawn();
 	double sizeImageW = (double) (WIDTH)/ (double) (NB_CASE_W);
 	double sizeImageH = (double) (HEIGHT)/(double) (NB_CASE_H);
 
 	for(int i = 0; i < NB_CASE_H; i++){
 		for(int j = 0; j < NB_CASE_W; j++){
-			//blit(sky, display,0,0, (sizeImageW*i), (sizeImageH*j), sizeImageW, sizeImageH);
-			//al_draw_bitmap(textures["dirt"], (sizeImageW*i), (sizeImageH*j),  0);
-			//cout << "i, j " << i << ',' << j << endl;
-			al_draw_scaled_bitmap(textures["dirt"], 0, 0, al_get_bitmap_width(textures["dirt"]), al_get_bitmap_height(textures["dirt"]),
-				(sizeImageW*j), (sizeImageH*i), sizeImageW, sizeImageH, 0);
+			TypeMaterial type = map->getCase(i, j).getMaterial()->getType();
+			int w = al_get_bitmap_width(textures[type]);
+			int h = al_get_bitmap_height(textures[type]);
+			al_draw_scaled_bitmap(textures[type], 0, 0, w, h, sizeImageW*j, sizeImageH*i, sizeImageW, sizeImageH, 0);
+			//al_draw_sprite(textures[type], display, sizeImageW*j, sizeImageH*i);
+		}
+	}
+	al_draw_scaled_bitmap(creatTexture, 0, 0, al_get_bitmap_width(creatTexture), al_get_bitmap_height(creatTexture), sizeImageW*spawn->getY(), sizeImageH*spawn->getX(), sizeImageW, sizeImageH, 0);
+
+	al_flip_display();
+}
+
+void Graphic::display_loop(){
+	ALLEGRO_EVENT_QUEUE* queue;
+	bool close = false;
+	queue = al_create_event_queue();
+	if (!queue){
+		throw EventListNotCreatedException("");
+	}
+	al_register_event_source(queue, al_get_display_event_source(display));
+	while(!close){
+		ALLEGRO_EVENT event = { 0 };
+		al_wait_for_event_timed(queue, &event, 1.0 / 10);
+		display_map();
+		if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+			close = true;
+		}
+		else{
+			usleep(200000);
 		}
 	}
 
-	al_flip_display();
+}
 
-	al_rest(10.0);
-
+void Graphic::display_destroy(){
 	al_destroy_display(display);
 }

@@ -9,7 +9,7 @@
 	#include "../object/ObjectWater.hpp"
 	#include "../object/TypeObject.hpp"
 	#include "material/Material.hpp"
-	#include "material/AirMaterial.hpp"
+	#include "material/DirtMaterial.hpp"
 	#include "../../usefull/Usefull.hpp"
 	#include "../../exception/BadMapObjectException.hpp"
 

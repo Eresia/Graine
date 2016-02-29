@@ -10,7 +10,8 @@ int main(int argc, char** argv){
 	Map* map = new MapMountain(NB_CASE_H,NB_CASE_W);
 	try{
 		Graphic* g = new Graphic(map);
-		g->display_map();
+		g->display_loop();
+		g->display_destroy();
 	}
 	catch(WindowNotCreatedException e){
 		cout << e.what() << endl;

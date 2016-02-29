@@ -3,11 +3,11 @@
 using namespace std;
 
 CaseMap::CaseMap(){
-	material = AirMaterial::getInstance();
+	material = DirtMaterial::getInstance();
 }
 
 CaseMap::~CaseMap(){
-	delete material;
+
 }
 
 void CaseMap::setMaterial(Material* material){
