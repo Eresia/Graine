@@ -1,6 +1,7 @@
 #include "Creature.hpp"
 
-Creature::Creature(int id, Position position) : id(id), position(position), rotation(0), brain(NeuronNetwork(2, 2, 1, 6)){
+Creature::Creature(int id, Position position) : id(id), position(position), rotation(0),
+												brain(NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
 
 }
 

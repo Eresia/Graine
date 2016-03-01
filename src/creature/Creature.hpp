@@ -10,6 +10,11 @@
 #include "../neuronNetwork/NeuronNetwork.hpp"
 #include "../exception/BadNumberOfInputException.hpp"
 
+#define BRAIN_INPUT 2
+#define BRAIN_OUTPUT 2
+#define BRAIN_HIDDEN_LAYER 1
+#define BRAIN_NEURON_PER_LAYER 3
+
 class Creature{
 
 	private:
