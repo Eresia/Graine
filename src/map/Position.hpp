@@ -1,6 +1,8 @@
 #ifndef POSITION
 #define POSITION
 
+#include <cmath>
+
 class Position {
 
 	private:
@@ -11,14 +13,28 @@ class Position {
 		Position();
 		Position(double x, double y);
 		Position(Position& copy);
-		double getX();
-		double getY();
+		double getX() const;
+		double getY() const;
 		void setX(double x);
 		void setY(double y);
 		void updateX(double deltaX);
 		void updateY(double deltaY);
 		void setPosition(double x, double y);
 		void updatePosition(double deltaX, double deltaY);
+		double getDistance() const;
+
+		Position &operator+(const Position &rhs);
+		Position &operator-(const Position &rhs);
+		Position &operator*(const double &rhs);
+		Position &operator/(const double &rhs);
+		Position &operator+=(const Position &rhs);
+		Position &operator-=(const Position &rhs);
+		Position &operator*=(const double &rhs);
+		Position &operator/=(const double &rhs);
+		bool operator<(const Position &rhs);
+		bool operator<=(const Position &rhs);
+		bool operator>(const Position &rhs);
+		bool operator>=(const Position &rhs);
 };
 
 #endif

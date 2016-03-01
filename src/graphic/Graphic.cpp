@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Graphic::Graphic(Map& map, vector<Creature>& creatures) : map(map), creatures(creatures){
+Graphic::Graphic(Map& map, Controller& control) : map(map), control(control){
 
 	display = NULL;
 
@@ -49,16 +49,16 @@ void Graphic::display_map(){
 		}
 	}
 
-	for(int i = 0; i < (int) creatures.size(); i++){
-		Position posCrea = creatures[i].getPosition();
-		al_draw_rotated_bitmap(creatTexture, widthCrea/2, heigthCrea/2, posCrea.getY() + widthCrea/2, posCrea.getX() + heigthCrea/2, creatures[i].getRotation(),0);
+	for(int i = 0; i < control.getNbCreaMax(); i++){
+		Position posCrea;
+		posCrea = control.getPositionCrea(i);
+		al_draw_rotated_bitmap(creatTexture, widthCrea/2, heigthCrea/2, posCrea.getY() + widthCrea/2, posCrea.getX() + heigthCrea/2, control.getRotationCrea(i),0);
 		al_flip_display();
 	}
 }
 
 void Graphic::display_loop(){
 	ALLEGRO_EVENT_QUEUE* queue;
-	MapObjective& mapObj = (MapObjective&) map;
 	bool close = false;
 	queue = al_create_event_queue();
 	if (!queue){
@@ -75,12 +75,7 @@ void Graphic::display_loop(){
 		else{
 			usleep(10000);
 		}
-		for(int i = 0; i < (int) creatures.size(); i++){
-			double x = mapObj.getObjective().getX() - creatures[i].getPosition().getX();
-			double y = mapObj.getObjective().getY() - creatures[i].getPosition().getY();
-			creatures[i].think(x, y);
-			//creatures[i].move(10);
-		}
+		control.update();
 	}
 
 }

@@ -14,11 +14,11 @@ Position::Position(Position& copy){
 	y = copy.y;
 }
 
-double Position::getX(){
+double Position::getX() const{
 	return x;
 }
 
-double Position::getY(){
+double Position::getY() const{
 	return y;
 }
 
@@ -46,4 +46,72 @@ void Position::setPosition(double x, double y){
 void Position::updatePosition(double deltaX, double deltaY){
 	x += deltaX;
 	y += deltaY;
+}
+
+double Position::getDistance() const{
+	return sqrt(x*x + y*y);
+}
+
+Position &Position::operator+(const Position &rhs){
+	Position* result = new Position(x + rhs.x, y + rhs.y);
+	return *result;
+}
+
+Position &Position::operator-(const Position &rhs){
+	Position* result = new Position(x - rhs.x, y - rhs.y);
+	return *result;
+}
+
+Position &Position::operator*(const double &rhs){
+	Position* result = new Position(x * rhs, y * rhs);
+	return *result;
+}
+
+Position &Position::operator/(const double &rhs){
+	Position* result = new Position(x / rhs, y / rhs);
+	return *result;
+}
+
+Position &Position::operator+=(const Position &rhs){
+	x += rhs.x;
+	y += rhs.y;
+
+	return *this;
+}
+
+Position &Position::operator-=(const Position &rhs){
+	x -= rhs.x;
+	y -= rhs.y;
+
+	return *this;
+}
+
+Position &Position::operator*=(const double &rhs){
+	x *= rhs;
+	y *= rhs;
+
+	return *this;
+}
+
+Position &Position::operator/=(const double &rhs){
+	x /= rhs;
+	y /= rhs;
+
+	return *this;
+}
+
+bool Position::operator>(const Position &rhs){
+	return (getDistance() > rhs.getDistance());
+}
+
+bool Position::operator>=(const Position &rhs){
+	return (getDistance() >= rhs.getDistance());
+}
+
+bool Position::operator<(const Position &rhs){
+	return (getDistance() < rhs.getDistance());
+}
+
+bool Position::operator<=(const Position &rhs){
+	return (getDistance() <= rhs.getDistance());
 }

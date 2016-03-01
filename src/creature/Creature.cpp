@@ -1,6 +1,14 @@
 #include "Creature.hpp"
 
-Creature::Creature(Position& position, double speed) : position(position), rotation(0), brain(NeuronNetwork(2, 2, 1, 6)){
+Creature::Creature(int id, Position position) : id(id), position(position), rotation(0), brain(NeuronNetwork(2, 2, 1, 6)){
+
+}
+
+Creature::Creature(int id, Position position, NeuronNetwork brain) : id(id), position(position), rotation(0), brain(brain){
+
+}
+
+Creature::Creature(Creature& copy) : id(copy.id), position(copy.position), rotation(copy.rotation), brain(copy.brain){
 
 }
 
@@ -45,14 +53,25 @@ Position& Creature::getPosition(){
 	return position;
 }
 
-void Creature::setPosition(Position& position){
+void Creature::setPosition(Position position){
 	this->position = position;
 }
 
-double Creature::getRotation(){
+double Creature::getRotation() const{
 	return rotation;
 }
 
 void Creature::setRotation(double rotation){
 	this->rotation = rotation;
+}
+
+int Creature::getId() const{
+	return id;
+}
+
+bool Creature::comparePosition(const Creature* c1, const Creature* c2){
+	Position p1, p2;
+	p1 = c1->position;
+	p2 = c2->position;
+	return (p1 < p2);
 }

@@ -13,12 +13,15 @@
 class Creature{
 
 	private:
-		Position& position;
+		int id;
+		Position position;
 		double rotation;
 		NeuronNetwork brain;
 
 	public:
-		Creature(Position& position, double speed);
+		Creature(int id, Position position);
+		Creature(int id, Position position, NeuronNetwork brain);
+		Creature(Creature& copy);
 		void think(double info1, double info2);
 		void move(int speed);
 		void move(double forceLeft, double forceRight);
@@ -26,11 +29,12 @@ class Creature{
 		void turnRight();
 
 		Position& getPosition();
-		void setPosition(Position& position);
-		double getRotation();
+		void setPosition(Position position);
+		double getRotation() const;
 		void setRotation(double rotation);
-		double getSpeed();
-		void setSpeed(double speed);
+		int getId() const;
+
+		static bool comparePosition(const Creature* c1, const Creature* c2);
 };
 
 #endif
