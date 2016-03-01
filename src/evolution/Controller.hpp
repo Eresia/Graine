@@ -18,12 +18,15 @@ class Controller{
 	private:
 		Map& map;
 		int nbCrea, nbCreaMax;
+		int nbGen;
 		int turn, turnMax;
 		std::vector<Creature*> creatures;
 		int idCounter;
 
 		void createCreatures();
 		void createCreatures(vector<NeuronNetwork> brains);
+		Position getSpawn(int number);
+		void printNbGen();
 
 	public:
 		Controller(Map& map, int nbCrea, int turnMax);

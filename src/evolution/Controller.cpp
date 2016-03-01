@@ -2,13 +2,14 @@
 
 using namespace std;
 
-Controller::Controller(Map& map, int nbCrea, int turnMax) : map(map), nbCrea(nbCrea), nbCreaMax(nbCrea*(nbCrea - 1)), turn(0), turnMax(turnMax), idCounter(0){
+Controller::Controller(Map& map, int nbCrea, int turnMax) : map(map), nbCrea(nbCrea), nbCreaMax(nbCrea*(nbCrea - 1)), nbGen(0), turn(0), turnMax(turnMax), idCounter(0){
 
 	if(nbCrea < MIN_CREA){
 		throw NotEnoughCreatureException(to_string(MIN_CREA) + " or more creature expected, " + to_string(nbCrea) + " given");
 	}
 
 	createCreatures();
+	printNbGen();
 }
 
 void Controller::update(){
@@ -39,23 +40,19 @@ void Controller::update(){
 		newBrains = evolution->evolve();
 		createCreatures(newBrains);
 		turn = 0;
+		nbGen++;
+		printNbGen();
 	}
 }
 
 void Controller::createCreatures(){
+
 	creatures.clear();
 	for(int i = 0; i < nbCreaMax; i++){
-		double spawnX;
-		double spawnY;
 		Position pos;
 		Creature* crea;
+		pos = getSpawn(i);
 
-		do{
-			spawnY = rand() % (NB_CASE_W-1);
-			spawnX = rand() % (NB_CASE_H-1);
-		}while(map.getCaseMaterial(spawnX, spawnY) == FoodMaterial::getInstance());
-
-		pos = Position(spawnX*SIZE_IMAGE_H, spawnY*SIZE_IMAGE_W);
 		crea = new Creature(idCounter, pos);
 		idCounter++;
 		creatures.push_back(crea);
@@ -69,22 +66,34 @@ void Controller::createCreatures(vector<NeuronNetwork> brains){
 
 	creatures.clear();
 	for(int i = 0; i < nbCreaMax; i++){
-		double spawnX;
-		double spawnY;
 		Position pos;
 		Creature* crea;
+		pos = getSpawn(i);
 
-		do{
-			spawnY = rand() % (NB_CASE_W-1);
-			spawnX = rand() % (NB_CASE_H-1);
-		}while(map.getCaseMaterial(spawnX, spawnY) == FoodMaterial::getInstance());
-
-		pos = Position(spawnX*SIZE_IMAGE_H, spawnY*SIZE_IMAGE_W);
 		crea = new Creature(idCounter, pos, brains[i]);
 		idCounter++;
 		creatures.push_back(crea);
 	}
 
+}
+
+Position Controller::getSpawn(int number){
+	MapObjective& mapObj = (MapObjective&) map;
+	Position pos;
+	double spawnX;
+	double spawnY;
+
+	/*do{
+		spawnY = rand() % (NB_CASE_W-1);
+		spawnX = rand() % (NB_CASE_H-1);
+	}while(map.getCaseMaterial(spawnX, spawnY) == FoodMaterial::getInstance());
+
+	pos = Position(spawnX*SIZE_IMAGE_H, spawnY*SIZE_IMAGE_W);*/
+
+	spawnX = (mapObj.getObjective().getX() + 10*sin(number*((M_PI/10) + (M_PI/20))))*SIZE_IMAGE_H;
+	spawnY = (mapObj.getObjective().getY() + 10*cos(number*((M_PI/10) + (M_PI/20))))*SIZE_IMAGE_W;
+	pos = Position(spawnX, spawnY);
+	return pos;
 }
 
 int Controller::getNbCrea() const{
@@ -101,4 +110,8 @@ Position& Controller::getPositionCrea(int crea){
 
 int Controller::getRotationCrea(int crea) const{
 	return creatures[crea]->getRotation();
+}
+
+void Controller::printNbGen(){
+	cout << "Generation " << to_string(nbGen) << endl;
 }
