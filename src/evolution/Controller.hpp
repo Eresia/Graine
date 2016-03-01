@@ -31,6 +31,7 @@ class Controller{
 	public:
 		Controller(Map& map, int nbCrea, int turnMax);
 		void update();
+		bool doneObjective();
 
 		int getNbCrea() const;
 		int getNbCreaMax() const;

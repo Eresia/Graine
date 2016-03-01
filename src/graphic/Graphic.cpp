@@ -76,6 +76,9 @@ void Graphic::display_loop(){
 			usleep(simSpeed);
 		}
 		control.update();
+		if(control.doneObjective()){
+			close = true;
+		}
 	}
 
 }

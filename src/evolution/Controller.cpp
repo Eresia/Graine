@@ -45,6 +45,22 @@ void Controller::update(){
 	}
 }
 
+bool Controller::doneObjective(){
+	MapObjective& mapObj = (MapObjective&) map;
+	double xObj = mapObj.getObjective().getX();
+	double yObj = mapObj.getObjective().getX();
+	bool result = false;
+	for(int i = 0; i < nbCreaMax; i++){
+		double x = creatures[i]->getPosition().getX() / SIZE_IMAGE_H;
+		double y = creatures[i]->getPosition().getY() / SIZE_IMAGE_W;
+		if((x == xObj) && (y == yObj)){
+			result = true;
+			break;
+		}
+	}
+	return result;
+}
+
 void Controller::createCreatures(){
 
 	creatures.clear();
