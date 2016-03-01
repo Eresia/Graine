@@ -14,7 +14,7 @@
 	#include "../exception/WindowNotCreatedException.hpp"
 	#include "../exception/EventListNotCreatedException.hpp"
 
-	#define DEFAULT_SPEED 5000
+	#define DEFAULT_SPEED 1
 
 	class Graphic{
 
@@ -25,6 +25,7 @@
 			std::map<TypeMaterial, ALLEGRO_BITMAP*> textures;
 			ALLEGRO_BITMAP* creatTexture;
 			int simSpeed;
+			bool actualiseGraphic;
 
 
 		public:

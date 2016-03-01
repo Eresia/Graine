@@ -2,12 +2,16 @@
 
 using namespace std;
 
-Graphic::Graphic(Map& map, Controller& control, int simSpeed) : map(map), control(control), simSpeed(simSpeed){
+Graphic::Graphic(Map& map, Controller& control, int simSpeed) : map(map), control(control), simSpeed(simSpeed), actualiseGraphic(true){
 
 	display = NULL;
 
 	if(!al_init() || !al_init_image_addon()) {
 		throw WindowNotCreatedException("Failed to initialize allegro !");
+	}
+
+	if(!al_install_keyboard()) {
+		throw WindowNotCreatedException("Failed to initialize keyboard !");
 	}
 
 	textures[MATERIAL_AIR] = al_load_bitmap("images/sky.bmp");
@@ -65,12 +69,27 @@ void Graphic::display_loop(){
 		throw EventListNotCreatedException("");
 	}
 	al_register_event_source(queue, al_get_display_event_source(display));
+	al_register_event_source(queue, al_get_keyboard_event_source());
 	while(!close){
 		ALLEGRO_EVENT event = { 0 };
 		al_wait_for_event_timed(queue, &event, 1.0 / 10);
-		display_map();
+		if(actualiseGraphic){
+			display_map();
+		}
+
 		if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
 			close = true;
+		}
+		else if(event.type == ALLEGRO_EVENT_KEY_DOWN) {
+			switch(event.keyboard.keycode) {
+				case ALLEGRO_KEY_ESCAPE:
+				close = true;
+				break;
+
+				case ALLEGRO_KEY_ENTER:
+				actualiseGraphic = !actualiseGraphic;
+				break;
+			}
 		}
 		else{
 			usleep(simSpeed);
