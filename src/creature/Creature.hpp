@@ -33,6 +33,7 @@ class Creature{
 		double getRotation() const;
 		void setRotation(double rotation);
 		int getId() const;
+		NeuronNetwork& getBrain();
 
 		static bool comparePosition(const Creature* c1, const Creature* c2);
 };

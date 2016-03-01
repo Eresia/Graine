@@ -13,7 +13,7 @@ class Evolution{
 
 	public:
 		Evolution(std::vector<NeuronNetwork> brains);
-
+		vector<NeuronNetwork> evolve();
 };
 
 #endif

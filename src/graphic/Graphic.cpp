@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Graphic::Graphic(Map& map, Controller& control) : map(map), control(control){
+Graphic::Graphic(Map& map, Controller& control, int simSpeed) : map(map), control(control), simSpeed(simSpeed){
 
 	display = NULL;
 
@@ -35,7 +35,7 @@ Graphic::Graphic(Map& map, Controller& control) : map(map), control(control){
 }
 
 void Graphic::display_map(){
-
+	al_flip_display();
 	int widthCrea = al_get_bitmap_width(creatTexture);
 	int heigthCrea = al_get_bitmap_height(creatTexture);
 
@@ -53,7 +53,7 @@ void Graphic::display_map(){
 		Position posCrea;
 		posCrea = control.getPositionCrea(i);
 		al_draw_rotated_bitmap(creatTexture, widthCrea/2, heigthCrea/2, posCrea.getY() + widthCrea/2, posCrea.getX() + heigthCrea/2, control.getRotationCrea(i),0);
-		al_flip_display();
+		//al_flip_display();
 	}
 }
 
@@ -73,7 +73,7 @@ void Graphic::display_loop(){
 			close = true;
 		}
 		else{
-			usleep(10000);
+			usleep(simSpeed);
 		}
 		control.update();
 	}

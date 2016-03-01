@@ -7,7 +7,11 @@
 #include "../map/Map.hpp"
 #include "../map/mapType/MapObjective.hpp"
 #include "../creature/Creature.hpp"
+#include "Evolution.hpp"
 #include "../exception/NotEnoughCreatureException.hpp"
+#include "../exception/NotEnoughBrainException.hpp"
+
+#define MIN_CREA 2
 
 class Controller{
 
@@ -17,6 +21,9 @@ class Controller{
 		int turn, turnMax;
 		std::vector<Creature*> creatures;
 		int idCounter;
+
+		void createCreatures();
+		void createCreatures(vector<NeuronNetwork> brains);
 
 	public:
 		Controller(Map& map, int nbCrea, int turnMax);

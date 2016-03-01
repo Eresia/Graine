@@ -69,6 +69,10 @@ int Creature::getId() const{
 	return id;
 }
 
+NeuronNetwork& Creature::getBrain(){
+	return brain;
+}
+
 bool Creature::comparePosition(const Creature* c1, const Creature* c2){
 	Position p1, p2;
 	p1 = c1->position;

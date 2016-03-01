@@ -8,6 +8,8 @@
 #include "../exception/BadNumberOfInputException.hpp"
 
 //#define THRESHOLD 1.0
+#define RATE_CROSS_OVER 20
+#define RATE_MUTATION 1
 
 class Neuron{
 
@@ -19,6 +21,9 @@ class Neuron{
 
 	public:
 		Neuron(int nbInput);
+		Neuron(int nbInput, Neuron& father, Neuron& mother);
+		double crossOver(double used, double notUsed);
+		double mutate(double value);
 		double stimule(std::vector<double> weights);
 
 };

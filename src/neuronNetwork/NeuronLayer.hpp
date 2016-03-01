@@ -14,6 +14,7 @@ class NeuronLayer{
 
 	public:
 		NeuronLayer(int nbNeuron, int nbInputPerNeuron);
+		NeuronLayer(int nbNeuron, int nbInputPerNeuron, NeuronLayer& father, NeuronLayer& mother);
 		std::vector<double> stimule(std::vector<double> stim);
 };
 

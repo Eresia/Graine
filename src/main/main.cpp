@@ -12,8 +12,8 @@ int main(int argc, char** argv){
 	MapObjective map(NB_CASE_H,NB_CASE_W);
 
 	try{
-		Controller control(map, 2, 10);
-		Graphic* g = new Graphic(map, control);
+		Controller control(map, 4, 30);
+		Graphic* g = new Graphic(map, control, DEFAULT_SPEED);
 		g->display_loop();
 		g->display_destroy();
 	}

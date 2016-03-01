@@ -2,7 +2,11 @@
 
 using namespace std;
 
-NeuronNetwork::NeuronNetwork(int nbInput, int nbOutput, int nbHiddenLayer, int nbNeuronPerLayer) : nbInput(nbInput), nbHiddenLayer(nbHiddenLayer){
+NeuronNetwork::NeuronNetwork(int nbInput, int nbOutput, int nbHiddenLayer, int nbNeuronPerLayer){
+	this->nbInput = nbInput;
+	this->nbOutput = nbOutput;
+	this->nbHiddenLayer = nbHiddenLayer;
+	this->nbNeuronPerLayer = nbNeuronPerLayer;
 	if(nbHiddenLayer > 0){
 		layers.push_back(NeuronLayer(nbNeuronPerLayer, nbInput));
 		for(int i = 0; i < nbHiddenLayer - 1; i++){
@@ -12,6 +16,26 @@ NeuronNetwork::NeuronNetwork(int nbInput, int nbOutput, int nbHiddenLayer, int n
 	}
 	else{
 		layers.push_back(NeuronLayer(nbOutput, nbInput));
+	}
+}
+
+NeuronNetwork::NeuronNetwork(NeuronNetwork father, NeuronNetwork mother){
+	if(!asSameStruct(father, mother)){
+		throw NotSameStructException("The two networks have not the same structure");
+	}
+	nbInput = father.nbInput;
+	nbOutput = father.nbOutput;
+	nbHiddenLayer = father.nbHiddenLayer;
+	nbNeuronPerLayer = father.nbNeuronPerLayer;
+	if(nbHiddenLayer > 0){
+		layers.push_back(NeuronLayer(nbNeuronPerLayer, nbInput, father.layers[0], mother.layers[0]));
+		for(int i = 0; i < nbHiddenLayer - 1; i++){
+			layers.push_back(NeuronLayer(nbNeuronPerLayer, nbNeuronPerLayer, father.layers[i+1], mother.layers[i+1]));
+		}
+		layers.push_back(NeuronLayer(nbOutput, nbNeuronPerLayer, father.layers[nbHiddenLayer], mother.layers[nbHiddenLayer]));
+	}
+	else{
+		layers.push_back(NeuronLayer(nbOutput, nbInput, father.layers[0], mother.layers[0]));
 	}
 }
 
@@ -29,4 +53,8 @@ vector<double> NeuronNetwork::update(vector<double>& firstInputs){
 	}
 
 	return outputs;
+}
+
+bool NeuronNetwork::asSameStruct(NeuronNetwork net1, NeuronNetwork& net2){
+	return((net1.nbInput == net2.nbInput) && (net1.nbOutput == net2.nbOutput) && (net1.nbHiddenLayer == net2.nbHiddenLayer) && (net1.nbNeuronPerLayer == net2.nbNeuronPerLayer));
 }
