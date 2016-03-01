@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "../util/util.hpp"
+#include "../usefull/Usefull.hpp"
 #include "../exception/BadNumberOfInputException.hpp"
 
 //#define THRESHOLD 1.0

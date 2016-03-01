@@ -4,10 +4,10 @@ OBJECTS= $(SOURCES:.cpp=.o)
 
 OBJECTS_PATH=$(foreach obj, $(OBJECTS), $(objectDir)/$(obj))
 
-all: $(OBJECTS)
+all: $(OBJECTS_PATH)
 
-%.o: %.cpp $(hearders)
-	$(CC) -o $(objectDir)/$@ -c $< $(CFLAGS)
+$(objectDir)/%.o: %.cpp $(headers)
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
 	rm $(OBJECTS_PATH);
