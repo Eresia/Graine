@@ -18,7 +18,12 @@
 	#include "../exception/EventListNotCreatedException.hpp"
 
 	#define DEFAULT_SPEED 20
-	#define AUTO_AFFICHAGE true
+
+	#ifdef TEST_PROBA
+		#define AUTO_AFFICHAGE true
+	#else
+		#define AUTO_AFFICHAGE false
+	#endif
 
 	//#define DRAW_POS_ON_MAP
 
