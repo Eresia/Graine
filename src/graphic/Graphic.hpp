@@ -13,13 +13,12 @@
 	#include "../map/mapType/MapObjective.hpp"
 	#include "../evolution/Controller.hpp"
 	#include "../map/Position.hpp"
+	#include "../usefull/Usefull.hpp"
 	#include "../exception/WindowNotCreatedException.hpp"
 	#include "../exception/EventListNotCreatedException.hpp"
 
 	#define DEFAULT_SPEED 20
 	#define AUTO_AFFICHAGE true
-
-	//#define TEST_PROBA
 
 	//#define DRAW_POS_ON_MAP
 

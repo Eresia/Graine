@@ -149,7 +149,9 @@ void Graphic::display_loop(){
 					display_map();
 					sleep(1);
 				}*/
-				close = true;
+				#ifdef TEST_PROBA
+					close = true;
+				#endif
 			}
 			usleep(simSpeed);
 		}

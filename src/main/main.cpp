@@ -25,7 +25,7 @@ int main(int argc, char** argv){
 		Graphic* g = new Graphic(map, control, speed);
 		g->display_loop();
 		g->display_destroy();
-		#ifndef MANUAL_CREATURE
+		#ifdef TEST_PROBA
 			cout << control.getNbGen() << endl;
 		#endif
 	}

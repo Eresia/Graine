@@ -10,13 +10,11 @@
 #include "../creature/feature/input/ObjectiveDirection.hpp"
 #include "../creature/feature/output/Movement.hpp"
 #include "Evolution.hpp"
+#include "../usefull/Usefull.hpp"
 #include "../exception/NotEnoughCreatureException.hpp"
 #include "../exception/NotEnoughBrainException.hpp"
 
 #define MIN_CREA 2
-
-#define MANUAL_CREATURE
-//#define PRINT_GEN
 
 enum Rotation : bool {ROTATE_LEFT, ROTATE_RIGHT};
 
