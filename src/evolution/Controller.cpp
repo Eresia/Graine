@@ -9,7 +9,7 @@ Controller::Controller(Map& map, int nbCrea, int turnMax) : map(map), nbCrea(nbC
 	}
 
 	createCreatures();
-	printNbGen();
+	//printNbGen();
 }
 
 void Controller::update(){
@@ -39,18 +39,18 @@ void Controller::update(){
 		createCreatures(newBrains);
 		turn = 0;
 		nbGen++;
-		printNbGen();
+		//printNbGen();
 	}
 }
 
 bool Controller::doneObjective(){
 	MapObjective& mapObj = (MapObjective&) map;
-	double xObj = mapObj.getObjective().getX();
-	double yObj = mapObj.getObjective().getX();
+	int xObj = mapObj.getObjective().getX();
+	int yObj = mapObj.getObjective().getY();
 	bool result = false;
 	for(int i = 0; i < nbCreaMax; i++){
-		double x = creatures[i]->getPosition().getX() / SIZE_IMAGE_H;
-		double y = creatures[i]->getPosition().getY() / SIZE_IMAGE_W;
+		int x = creatures[i]->getPosition().getX() / SIZE_IMAGE_H;
+		int y = creatures[i]->getPosition().getY() / SIZE_IMAGE_W;
 		if((x == xObj) && (y == yObj)){
 			result = true;
 			break;
@@ -136,4 +136,8 @@ int Controller::getRotationCrea(int crea) const{
 
 void Controller::printNbGen(){
 	cout << "Generation " << to_string(nbGen) << endl;
+}
+
+int Controller::getNbGen(){
+	return nbGen;
 }

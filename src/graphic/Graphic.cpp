@@ -2,12 +2,21 @@
 
 using namespace std;
 
-Graphic::Graphic(Map& map, Controller& control, int simSpeed) : map(map), control(control), simSpeed(simSpeed), actualiseGraphic(true){
+Graphic::Graphic(Map& map, Controller& control, int simSpeed) : map(map), control(control), simSpeed(simSpeed), actualiseGraphic(false){
 
 	display = NULL;
 
 	if(!al_init() || !al_init_image_addon()) {
 		throw WindowNotCreatedException("Failed to initialize allegro !");
+	}
+
+	al_init_font_addon(); // initialize the font addon
+	al_init_ttf_addon();// initialize the ttf (True Type Font) addon
+
+	font = al_load_ttf_font("font/CollegiateInsideFLF.ttf",6,0 );
+
+	if (!font){
+		throw WindowNotCreatedException("Failed to initialize font !");
 	}
 
 	if(!al_install_keyboard()) {
@@ -48,7 +57,9 @@ void Graphic::display_map(){
 			TypeMaterial type = map.getCase(i, j).getMaterial()->getType();
 			int w = al_get_bitmap_width(textures[type]);
 			int h = al_get_bitmap_height(textures[type]);
+			//string text = "(" + to_string(i) + "," + to_string(j) + ")";
 			al_draw_scaled_bitmap(textures[type], 0, 0, w, h, SIZE_IMAGE_W*j, SIZE_IMAGE_H*i, SIZE_IMAGE_W, SIZE_IMAGE_H, 0);
+			//al_draw_text(font, al_map_rgb(0,0,0), SIZE_IMAGE_W*j, SIZE_IMAGE_H*i ,ALLEGRO_ALIGN_LEFT, text.c_str());
 			//al_draw_sprite(textures[type], display, sizeImageW*j, sizeImageH*i);
 		}
 	}
@@ -56,7 +67,9 @@ void Graphic::display_map(){
 	for(int i = 0; i < control.getNbCreaMax(); i++){
 		Position posCrea;
 		posCrea = control.getPositionCrea(i);
-		al_draw_rotated_bitmap(creatTexture, widthCrea/2, heigthCrea/2, posCrea.getY() + widthCrea/2, posCrea.getX() + heigthCrea/2, control.getRotationCrea(i),0);
+		//string text = "(" + to_string((int) (posCrea.getX() / SIZE_IMAGE_H)) + "," + to_string((int) (posCrea.getY() / SIZE_IMAGE_W)) + ")";
+		al_draw_rotated_bitmap(creatTexture, widthCrea/2, heigthCrea/2, posCrea.getY(), posCrea.getX(), control.getRotationCrea(i),0);
+		//al_draw_text(font, al_map_rgb(0,0,0), posCrea.getY(), posCrea.getX(),ALLEGRO_ALIGN_LEFT, text.c_str());
 		//al_flip_display();
 	}
 }
@@ -96,6 +109,10 @@ void Graphic::display_loop(){
 		}
 		control.update();
 		if(control.doneObjective()){
+			/*while(1){
+				display_map();
+				sleep(1);
+			}*/
 			close = true;
 		}
 	}

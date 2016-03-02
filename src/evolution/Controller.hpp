@@ -40,6 +40,7 @@ class Controller{
 		int getNbCreaMax() const;
 		Position& getPositionCrea(int crea);
 		int getRotationCrea(int crea) const;
+		int getNbGen();
 };
 
 #endif

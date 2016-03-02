@@ -16,6 +16,7 @@ int main(int argc, char** argv){
 		Graphic* g = new Graphic(map, control, DEFAULT_SPEED);
 		g->display_loop();
 		g->display_destroy();
+		cout << control.getNbGen() << endl;
 	}
 	catch(NotEnoughCreatureException e){
 		cout << e.what() << endl;

@@ -5,7 +5,9 @@
 	#include <string>
 	#include <allegro5/allegro.h>
 	#include <allegro5/allegro_image.h>
-	#include "allegro5/allegro_native_dialog.h"
+	#include <allegro5/allegro_font.h>
+	#include <allegro5/allegro_ttf.h>
+	#include <allegro5/allegro_native_dialog.h>
 	#include <map>
 	#include "../map/Map.hpp"
 	#include "../map/mapType/MapObjective.hpp"
@@ -26,6 +28,7 @@
 			ALLEGRO_BITMAP* creatTexture;
 			int simSpeed;
 			bool actualiseGraphic;
+			ALLEGRO_FONT *font;
 
 
 		public:

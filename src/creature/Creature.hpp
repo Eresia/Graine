@@ -33,6 +33,7 @@ class Creature{
 		Creature(int id, Position position, NeuronNetwork brain);
 		Creature(Creature& copy);
 		void think();
+		void doActions();
 		void move(int speed);
 		void move(double forceLeft, double forceRight);
 		void turnLeft();

@@ -30,7 +30,7 @@ void Creature::think(){
 			outputFeatures[i]->update(result[i]);
 		}
 
-		move(outputFeatures[0]->getValue(), outputFeatures[1]->getValue());
+		doActions();
 
 	} catch(BadNumberOfInputException e){
 		cout << "Bad number of inputs" << endl;
@@ -38,6 +38,10 @@ void Creature::think(){
 	} catch(BadNumberOfOutputException e){
 		cout << e.what() << endl;
 	}
+}
+
+void Creature::doActions(){
+	move(outputFeatures[0]->getValue(), outputFeatures[1]->getValue());
 }
 
 void Creature::move(int speed){

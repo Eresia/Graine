@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-Wall -g -std=c++11 -pthread -DDEBUG
-EFLAGS=`pkg-config --libs allegro-5.0 allegro_main-5.0 allegro_image-5.0`
+EFLAGS=`pkg-config --libs allegro-5.0 allegro_main-5.0 allegro_image-5.0 allegro_font-5.0 allegro_ttf-5.0`
 
 launcher=test.out
 
