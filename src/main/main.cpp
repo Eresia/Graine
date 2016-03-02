@@ -13,7 +13,7 @@ int main(int argc, char** argv){
 	int speed;
 
 	#ifndef MANUAL_CREATURE
-		Controller control(map, 4, 30);
+		Controller control(map, 5, 30);
 		speed = 30;
 	#else
 		Controller control(map);

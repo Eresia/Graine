@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Controller::Controller(Map& map, int nbCrea, int turnMax) : map(map), nbCrea(nbCrea), nbCreaMax(nbCrea*(nbCrea - 1)), nbGen(0), turn(0), turnMax(turnMax), idCounter(0){
+Controller::Controller(Map& map, int nbCrea, int turnMax) : map(map), nbCrea(nbCrea), nbCreaMax(MAX_CREA(nbCrea)), nbGen(0), turn(0), turnMax(turnMax), idCounter(0){
 
 	if(nbCrea < MIN_CREA){
 		throw NotEnoughCreatureException(to_string(MIN_CREA) + " or more creature expected, " + to_string(nbCrea) + " given");

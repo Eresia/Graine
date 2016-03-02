@@ -16,6 +16,14 @@
 
 #define MIN_CREA 2
 
+#if defined(EGALITARY)
+	#define MAX_CREA(X) X*(X-1)
+#elif defined(FAVORITISM)
+	#define MAX_CREA(X) sumFrom0ToN(X) + X/2
+#else
+	#define MAX_CREA(X) X*(X-1)
+#endif
+
 enum Rotation : bool {ROTATE_LEFT, ROTATE_RIGHT};
 
 class Controller{
