@@ -8,7 +8,10 @@
 #include <cmath>
 #include "../map/Position.hpp"
 #include "../neuronNetwork/NeuronNetwork.hpp"
+#include "feature/input/InputFeature.hpp"
+#include "feature/output/OutputFeature.hpp"
 #include "../exception/BadNumberOfInputException.hpp"
+#include "../exception/BadNumberOfOutputException.hpp"
 
 #define BRAIN_INPUT 2
 #define BRAIN_OUTPUT 2
@@ -22,16 +25,21 @@ class Creature{
 		Position position;
 		double rotation;
 		NeuronNetwork brain;
+		vector<InputFeature*> inputFeatures;
+		vector<OutputFeature*> outputFeatures;
 
 	public:
 		Creature(int id, Position position);
 		Creature(int id, Position position, NeuronNetwork brain);
 		Creature(Creature& copy);
-		void think(double info1, double info2);
+		void think();
 		void move(int speed);
 		void move(double forceLeft, double forceRight);
 		void turnLeft();
 		void turnRight();
+
+		void addInputFeature(InputFeature* input);
+		void addOutputFeature(OutputFeature* output);
 
 		Position& getPosition();
 		void setPosition(Position position);

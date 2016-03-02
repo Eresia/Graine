@@ -1,7 +1,7 @@
 #include "Creature.hpp"
 
 Creature::Creature(int id, Position position) : id(id), position(position), rotation(0),
-												brain(NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
+brain(NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
 
 }
 
@@ -13,15 +13,29 @@ Creature::Creature(Creature& copy) : id(copy.id), position(copy.position), rotat
 
 }
 
-void Creature::think(double info1, double info2){
-	vector<double> info;
-	info.push_back(info1);
-	info.push_back(info2);
+void Creature::think(){
+	vector<double> infos;
+	vector<double> result;
+	for(int i = 0; i < (int) inputFeatures.size(); i++){
+		inputFeatures[i]->update();
+		infos.push_back(inputFeatures[i]->getValue());
+	}
 	try{
-		info = brain.update(info);
-		move(info[0], info[1]);
+		result = brain.update(infos);
+		if(result.size() != outputFeatures.size()){
+			throw BadNumberOfOutputException("Bad number of outputs");
+		}
+
+		for(int i = 0; i < (int) outputFeatures.size(); i++){
+			outputFeatures[i]->update(result[i]);
+		}
+
+		move(outputFeatures[0]->getValue(), outputFeatures[1]->getValue());
+
 	} catch(BadNumberOfInputException e){
-		cout << "Bad number of info" << endl;
+		cout << "Bad number of inputs" << endl;
+		cout << e.what() << endl;
+	} catch(BadNumberOfOutputException e){
 		cout << e.what() << endl;
 	}
 }
@@ -48,6 +62,14 @@ void Creature::turnRight(){
 	if(rotation >= (2*M_PI)){
 		rotation -= 2*M_PI;
 	}
+}
+
+void Creature::addInputFeature(InputFeature* input){
+	inputFeatures.push_back(input);
+}
+
+void Creature::addOutputFeature(OutputFeature* output){
+	outputFeatures.push_back(output);
 }
 
 Position& Creature::getPosition(){

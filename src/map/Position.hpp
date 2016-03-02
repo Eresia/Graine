@@ -6,8 +6,8 @@
 class Position {
 
 	private:
-		int x;
-		int y;
+		double x;
+		double y;
 
 	public:
 		Position();
@@ -15,6 +15,8 @@ class Position {
 		Position(Position& copy);
 		double getX() const;
 		double getY() const;
+		double& getXRef();
+		double& getYRef();
 		void setX(double x);
 		void setY(double y);
 		void updateX(double deltaX);

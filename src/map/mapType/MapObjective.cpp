@@ -14,9 +14,9 @@ void MapObjective::generate(){
 	int objectiveY = getSizeY() / 2;
 
 	setCaseMaterial(objectiveX, objectiveY, FoodMaterial::getInstance());
-	objective = Position(objectiveX, objectiveY);
+	objective = new Position(objectiveX, objectiveY);
 }
 
-Position MapObjective::getObjective(){
-	return objective;
+Position& MapObjective::getObjective(){
+	return *objective;
 }

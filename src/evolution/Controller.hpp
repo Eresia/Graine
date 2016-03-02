@@ -7,6 +7,8 @@
 #include "../map/Map.hpp"
 #include "../map/mapType/MapObjective.hpp"
 #include "../creature/Creature.hpp"
+#include "../creature/feature/input/ObjectiveDirection.hpp"
+#include "../creature/feature/output/Movement.hpp"
 #include "Evolution.hpp"
 #include "../exception/NotEnoughCreatureException.hpp"
 #include "../exception/NotEnoughBrainException.hpp"
@@ -25,6 +27,7 @@ class Controller{
 
 		void createCreatures();
 		void createCreatures(vector<NeuronNetwork> brains);
+		void addFeatures(Creature* creature);
 		Position getSpawn(int number);
 		void printNbGen();
 

@@ -18,9 +18,7 @@ void Controller::update(){
 	if(turn < turnMax){
 
 		for(int i = 0; i < nbCreaMax; i++){
-			double x = obj.getX() - creatures[i]->getPosition().getX();
-			double y = obj.getY() - creatures[i]->getPosition().getY();
-			creatures[i]->think(x, y);
+			creatures[i]->think();
 		}
 		turn++;
 	}
@@ -62,14 +60,13 @@ bool Controller::doneObjective(){
 }
 
 void Controller::createCreatures(){
-
 	creatures.clear();
 	for(int i = 0; i < nbCreaMax; i++){
 		Position pos;
 		Creature* crea;
 		pos = getSpawn(i);
-
 		crea = new Creature(idCounter, pos);
+		addFeatures(crea);
 		idCounter++;
 		creatures.push_back(crea);
 	}
@@ -87,10 +84,19 @@ void Controller::createCreatures(vector<NeuronNetwork> brains){
 		pos = getSpawn(i);
 
 		crea = new Creature(idCounter, pos, brains[i]);
+		addFeatures(crea);
 		idCounter++;
 		creatures.push_back(crea);
 	}
 
+}
+
+void Controller::addFeatures(Creature* creature){
+	MapObjective& mapObj = (MapObjective&) map;
+	creature->addInputFeature(new ObjectiveDirection(mapObj.getObjective().getXRef(), SIZE_IMAGE_H, creature->getPosition().getXRef()));
+	creature->addInputFeature(new ObjectiveDirection(mapObj.getObjective().getYRef(), SIZE_IMAGE_W, creature->getPosition().getYRef()));
+	creature->addOutputFeature(new Movement());
+	creature->addOutputFeature(new Movement());
 }
 
 Position Controller::getSpawn(int number){

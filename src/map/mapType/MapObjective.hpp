@@ -12,12 +12,12 @@
 class MapObjective : public Map{
 
 	private:
-		Position objective;
+		Position* objective;
 
 	public:
 		MapObjective(int sizeX, int sizeY);
 		void generate();
-		Position getObjective();
+		Position& getObjective();
 	};
 
 #endif

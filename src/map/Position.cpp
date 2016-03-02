@@ -22,6 +22,14 @@ double Position::getY() const{
 	return y;
 }
 
+double& Position::getXRef(){
+	return x;
+}
+
+double& Position::getYRef(){
+	return y;
+}
+
 void Position::setX(double x){
 	this->x = x;
 }
