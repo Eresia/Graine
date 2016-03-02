@@ -15,6 +15,11 @@
 
 #define MIN_CREA 2
 
+#define MANUAL_CREATURE
+//#define PRINT_GEN
+
+enum Rotation : bool {ROTATE_LEFT, ROTATE_RIGHT};
+
 class Controller{
 
 	private:
@@ -41,6 +46,11 @@ class Controller{
 		Position& getPositionCrea(int crea);
 		int getRotationCrea(int crea) const;
 		int getNbGen();
+
+		//Debug methods
+		Controller(Map& map);
+		void update(int speed);
+		void update(Rotation rotation);
 };
 
 #endif

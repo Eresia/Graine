@@ -1,3 +1,5 @@
-for i in `seq 1 300`
-    do ./test.out >> result.txt
+cp test.out test.out_a
+rm result.txt
+for i in `seq 1 $1`
+    do ./test.out_a >> result.txt
 done

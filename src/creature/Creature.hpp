@@ -28,9 +28,13 @@ class Creature{
 		vector<InputFeature*> inputFeatures;
 		vector<OutputFeature*> outputFeatures;
 
+		Position objective;
+
 	public:
 		Creature(int id, Position position);
 		Creature(int id, Position position, NeuronNetwork brain);
+		Creature(int id, Position position, Position& objective);
+		Creature(int id, Position position, NeuronNetwork brain, Position& objective);
 		Creature(Creature& copy);
 		void think();
 		void doActions();
@@ -48,6 +52,9 @@ class Creature{
 		void setRotation(double rotation);
 		int getId() const;
 		NeuronNetwork& getBrain();
+		Position& getObjective();
+		void setObjective(Position& objective);
+		void setObjective(double x, double y);
 
 		static bool comparePosition(const Creature* c1, const Creature* c2);
 };

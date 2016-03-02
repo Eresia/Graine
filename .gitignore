@@ -25,6 +25,7 @@
 # Executables
 *.exe
 *.out
+*.out_a
 *.app
 
 # Under Makefile

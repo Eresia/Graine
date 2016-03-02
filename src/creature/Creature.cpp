@@ -1,12 +1,19 @@
 #include "Creature.hpp"
 
-Creature::Creature(int id, Position position) : id(id), position(position), rotation(0),
-brain(NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
-
+Creature::Creature(int id, Position position) : Creature(id, position, NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
+	objective = Position(0, 0);
 }
 
 Creature::Creature(int id, Position position, NeuronNetwork brain) : id(id), position(position), rotation(0), brain(brain){
+	objective = Position(0, 0);
+}
 
+Creature::Creature(int id, Position position, Position& objective) : Creature(id, position, NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
+	this->objective = objective;
+}
+
+Creature::Creature(int id, Position position, NeuronNetwork brain, Position& objective) : Creature(id, position, brain){
+	this->objective = objective;
 }
 
 Creature::Creature(Creature& copy) : id(copy.id), position(copy.position), rotation(copy.rotation), brain(copy.brain){
@@ -105,4 +112,16 @@ bool Creature::comparePosition(const Creature* c1, const Creature* c2){
 	p1 = c1->position;
 	p2 = c2->position;
 	return (p1 < p2);
+}
+
+Position& Creature::getObjective(){
+	return objective;
+}
+
+void Creature::setObjective(Position& objective){
+	objective = objective;
+}
+
+void Creature::setObjective(double x, double y){
+	objective.setPosition(x, y);
 }
