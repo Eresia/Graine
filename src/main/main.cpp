@@ -1,3 +1,12 @@
+/**
+*	@file main.cpp
+*	Purpose : Just the main function, call Graphic functions.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include <vector>
 #include "../graphic/Graphic.hpp"
 #include "../map/Map.hpp"

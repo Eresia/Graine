@@ -1,3 +1,12 @@
+/**
+*	@file Map.cpp
+*	Purpose : Map size and materials definition class.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "Map.hpp"
 
 Map::Map(int sizeX, int sizeY){

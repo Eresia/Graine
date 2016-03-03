@@ -1,3 +1,12 @@
+/**
+*	@file Graphic.cpp
+*	Purpose : Map generation and destruction.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "Graphic.hpp"
 
 using namespace std;

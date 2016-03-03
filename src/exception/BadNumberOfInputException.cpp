@@ -1,5 +1,8 @@
 #include "BadNumberOfInputException.hpp"
-
+/**
+* @exception <BadNumberOfInputException> {Exception thrown when the number of
+input for a neuron at some point is not the number of inputs provided at start}
+*/
 BadNumberOfInputException::BadNumberOfInputException(string const& message) throw(){
 	this->message = message;
 }

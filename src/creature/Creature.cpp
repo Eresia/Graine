@@ -1,3 +1,12 @@
+/**
+*	@file Creature.cpp
+*	Purpose : Define the creature behavior and mind.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "Creature.hpp"
 
 Creature::Creature(int id, Position position) : Creature(id, position, NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){

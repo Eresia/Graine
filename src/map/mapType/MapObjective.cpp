@@ -1,3 +1,12 @@
+/**
+*	@file MapObjective.cpp
+*	Purpose : Define the food objective on the map.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "MapObjective.hpp"
 
 using namespace std;

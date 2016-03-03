@@ -1,3 +1,12 @@
+/**
+*	@file NeuronNetwork.cpp
+*	Purpose : Define the behavior of a NeuronNetwork using NeuronLayer functions.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "NeuronNetwork.hpp"
 
 using namespace std;
@@ -21,7 +30,7 @@ NeuronNetwork::NeuronNetwork(int nbInput, int nbOutput, int nbHiddenLayer, int n
 
 NeuronNetwork::NeuronNetwork(NeuronNetwork father, NeuronNetwork mother){
 	if(!asSameStruct(father, mother)){
-		throw NotSameStructException("The two networks have not the same structure");
+		throw NotSameStructException("The two networks don't have the same structure");
 	}
 	nbInput = father.nbInput;
 	nbOutput = father.nbOutput;
@@ -44,7 +53,7 @@ vector<double> NeuronNetwork::update(vector<double>& firstInputs){
 	vector<double> inputs = firstInputs;
 
 	if((int) firstInputs.size() != nbInput){
-		throw BadNumberOfInputException("NeuronNetwork need " + to_string(nbInput) + " inputs, " + to_string(firstInputs.size()) + " send");
+		throw BadNumberOfInputException("NeuronNetwork need " + to_string(nbInput) + " inputs, " + to_string(firstInputs.size()) + " sent");
 	}
 
 	for(int i = 0; i < nbHiddenLayer + 1; i++){

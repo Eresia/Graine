@@ -1,3 +1,12 @@
+/**
+*	@file Position.cpp
+*	Purpose : Definig up positions of objects in the map.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "Position.hpp"
 
 Position::Position() : Position(0, 0){

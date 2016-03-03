@@ -1,3 +1,12 @@
+/**
+*	@file Evolution.cpp
+*	Purpose : Define the evolution of the NeuronNetwork.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "Evolution.hpp"
 
 using namespace std;

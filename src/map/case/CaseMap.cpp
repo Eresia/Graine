@@ -1,3 +1,12 @@
+/**
+*	@file CaseMap.cpp
+*	Purpose : Define the differente cases of the map (dirt component).
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "CaseMap.hpp"
 
 using namespace std;
@@ -18,6 +27,7 @@ Material* CaseMap::getMaterial(){
 	return material;
 }
 
+//!< @deprecated
 /*void CaseMap::addObject(TypeObject type){
 	switch(type){
 		case OBJECT_FOOD:
@@ -31,6 +41,7 @@ Material* CaseMap::getMaterial(){
 	}
 }
 
+//!< @deprecated
 void CaseMap::removeObject(ObjectMap object){
 	vector<ObjectMap>::iterator it;
 	it = find(objects.begin(), objects.end(), object);

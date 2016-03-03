@@ -1,3 +1,12 @@
+/**
+*	@file NeuronLayer.cpp
+*	Purpose : Define the behavior of a NeuronLayer using Neuron.cpp functions.
+*
+*	@author Eresia
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "NeuronLayer.hpp"
 
 using namespace std;

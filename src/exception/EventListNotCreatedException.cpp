@@ -1,5 +1,8 @@
 #include "EventListNotCreatedException.hpp"
-
+/**
+* @exception <EventListNotCreatedException> {Exception thrown when the events are not
+"queing" properly.}
+*/
 EventListNotCreatedException::EventListNotCreatedException(string const& message) throw(){
 	this->message = message;
 }
