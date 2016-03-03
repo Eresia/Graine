@@ -1,0 +1,80 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+%\usepackage[latin]{babel}
+\usepackage{bookmark,hyperref}
+\usepackage{glossaries}
+
+\newglossaryentry{reseaudeneurone}
+{
+    name=reseaudeneurone,
+    description={fdsfsqfqs}
+}
+
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+
+\renewcommand{\bibname}{Bibliographie}
+\renewcommand{\contentsname}{Sommaire}
+\renewcommand{\partname}{Partie}
+
+\usepackage{titling}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics[width=10cm,height=5cm]{ucp.jpeg}\\[\bigskipamount]
+}
+
+\title{Rapport final}
+\subtitle{Génération de créatures procédurale et apprentissage par réseaux de neurones}
+\author{LEFEBVRE Thomas et LEPESANT Bastien}
+\date{10 Mars 2016}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\makeglossaries
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{introduction}
+\include{organisation}
+\part{Apprentissage par réseaux de neurones}
+\include{theorieRES}
+\include{pratiqueRES}
+\part{Génération des créatures}
+\include{theorieCRE}
+\include{pratiqueCRE}
+
+\bookmarksetup{startatroot}
+\addtocontents{toc}{\bigskip}
+
+\include{conclusion}
+\include{remerciements}
+
+\nocite{*}
+\bibliography{references}
+
+\part{Annexes}
+
+\printglossaries
+%\include{glossaire}
+\include{histoire}
+
+
+
+
+\end{document}
