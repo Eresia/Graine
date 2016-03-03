@@ -1,0 +1,140 @@
+\hypertarget{class_map}{}\section{Map Class Reference}
+\label{class_map}\index{Map@{Map}}
+
+
+{\ttfamily \#include $<$Map.\+hpp$>$}
+
+
+
+Inheritance diagram for Map\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{class_map__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Map\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_map__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_map_a53ce50f9b3c531c116e4f309868db9f7}{Map} (int sizeX, int sizeY)
+\item 
+\hyperlink{class_map_aa403fbe09394ccf39747588f5168e3b2}{$\sim$\+Map} ()
+\item 
+virtual void \hyperlink{class_map_a967bba2aff3a58a52eac11f79a232a6f}{generate} ()=0
+\item 
+void \hyperlink{class_map_a7428b4cc2499482c1a9bfa57ae77042c}{set\+Case} (int x, int y, \hyperlink{class_case_map}{Case\+Map} c)
+\item 
+\hyperlink{class_case_map}{Case\+Map} \hyperlink{class_map_a91f3e30fd8a401e1fa3833392f511251}{get\+Case} (int x, int y)
+\item 
+void \hyperlink{class_map_ae5a2149c5b7c4f97bd396f656bf1eefc}{set\+Case\+Material} (int x, int y, \hyperlink{class_material}{Material} $\ast$m)
+\item 
+\hyperlink{class_material}{Material} $\ast$ \hyperlink{class_map_a870975417f0276667399a4519f0c5b8a}{get\+Case\+Material} (int x, int y)
+\item 
+\hyperlink{class_case_map}{Case\+Map} $\ast$$\ast$ \hyperlink{class_map_a8b430d1b88825175a7eb8fafa258627b}{get\+Map} ()
+\item 
+int \hyperlink{class_map_a8f98d27258db448abb49b93be0d8149f}{get\+SizeX} ()
+\item 
+int \hyperlink{class_map_a910e3822a911ba31cdc4d0d9d722b5a0}{get\+SizeY} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\subsubsection[{\texorpdfstring{Map(int size\+X, int size\+Y)}{Map(int sizeX, int sizeY)}}]{\setlength{\rightskip}{0pt plus 5cm}Map\+::\+Map (
+\begin{DoxyParamCaption}
+\item[{int}]{sizeX, }
+\item[{int}]{sizeY}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a53ce50f9b3c531c116e4f309868db9f7}{}\label{class_map_a53ce50f9b3c531c116e4f309868db9f7}
+\index{Map@{Map}!````~Map@{$\sim$\+Map}}
+\index{````~Map@{$\sim$\+Map}!Map@{Map}}
+\subsubsection[{\texorpdfstring{$\sim$\+Map()}{~Map()}}]{\setlength{\rightskip}{0pt plus 5cm}Map\+::$\sim$\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_aa403fbe09394ccf39747588f5168e3b2}{}\label{class_map_aa403fbe09394ccf39747588f5168e3b2}
+
+
+\subsection{Member Function Documentation}
+\index{Map@{Map}!generate@{generate}}
+\index{generate@{generate}!Map@{Map}}
+\subsubsection[{\texorpdfstring{generate()=0}{generate()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Map\+::generate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_map_a967bba2aff3a58a52eac11f79a232a6f}{}\label{class_map_a967bba2aff3a58a52eac11f79a232a6f}
+
+
+Implemented in \hyperlink{class_map_proc_acabec5d6eb747c00b5b5ca2438020ef6}{Map\+Proc}, and \hyperlink{class_map_objective_a9db1f884557a72bcc4a30af8ec9937b4}{Map\+Objective}.
+
+\index{Map@{Map}!get\+Case@{get\+Case}}
+\index{get\+Case@{get\+Case}!Map@{Map}}
+\subsubsection[{\texorpdfstring{get\+Case(int x, int y)}{getCase(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Case\+Map} Map\+::get\+Case (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a91f3e30fd8a401e1fa3833392f511251}{}\label{class_map_a91f3e30fd8a401e1fa3833392f511251}
+\index{Map@{Map}!get\+Case\+Material@{get\+Case\+Material}}
+\index{get\+Case\+Material@{get\+Case\+Material}!Map@{Map}}
+\subsubsection[{\texorpdfstring{get\+Case\+Material(int x, int y)}{getCaseMaterial(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Material} $\ast$ Map\+::get\+Case\+Material (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a870975417f0276667399a4519f0c5b8a}{}\label{class_map_a870975417f0276667399a4519f0c5b8a}
+\index{Map@{Map}!get\+Map@{get\+Map}}
+\index{get\+Map@{get\+Map}!Map@{Map}}
+\subsubsection[{\texorpdfstring{get\+Map()}{getMap()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Case\+Map} $\ast$$\ast$ Map\+::get\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a8b430d1b88825175a7eb8fafa258627b}{}\label{class_map_a8b430d1b88825175a7eb8fafa258627b}
+\index{Map@{Map}!get\+SizeX@{get\+SizeX}}
+\index{get\+SizeX@{get\+SizeX}!Map@{Map}}
+\subsubsection[{\texorpdfstring{get\+Size\+X()}{getSizeX()}}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+::get\+SizeX (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a8f98d27258db448abb49b93be0d8149f}{}\label{class_map_a8f98d27258db448abb49b93be0d8149f}
+\index{Map@{Map}!get\+SizeY@{get\+SizeY}}
+\index{get\+SizeY@{get\+SizeY}!Map@{Map}}
+\subsubsection[{\texorpdfstring{get\+Size\+Y()}{getSizeY()}}]{\setlength{\rightskip}{0pt plus 5cm}int Map\+::get\+SizeY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a910e3822a911ba31cdc4d0d9d722b5a0}{}\label{class_map_a910e3822a911ba31cdc4d0d9d722b5a0}
+\index{Map@{Map}!set\+Case@{set\+Case}}
+\index{set\+Case@{set\+Case}!Map@{Map}}
+\subsubsection[{\texorpdfstring{set\+Case(int x, int y, Case\+Map c)}{setCase(int x, int y, CaseMap c)}}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::set\+Case (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{{\bf Case\+Map}}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_a7428b4cc2499482c1a9bfa57ae77042c}{}\label{class_map_a7428b4cc2499482c1a9bfa57ae77042c}
+\index{Map@{Map}!set\+Case\+Material@{set\+Case\+Material}}
+\index{set\+Case\+Material@{set\+Case\+Material}!Map@{Map}}
+\subsubsection[{\texorpdfstring{set\+Case\+Material(int x, int y, Material $\ast$m)}{setCaseMaterial(int x, int y, Material *m)}}]{\setlength{\rightskip}{0pt plus 5cm}void Map\+::set\+Case\+Material (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{{\bf Material} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{class_map_ae5a2149c5b7c4f97bd396f656bf1eefc}{}\label{class_map_ae5a2149c5b7c4f97bd396f656bf1eefc}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/map/\hyperlink{_map_8hpp}{Map.\+hpp}\item 
+src/map/\hyperlink{_map_8cpp}{Map.\+cpp}\end{DoxyCompactItemize}

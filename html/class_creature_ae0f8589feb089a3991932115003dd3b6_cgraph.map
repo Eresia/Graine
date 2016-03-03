@@ -1,0 +1,5 @@
+<map id="Creature::think" name="Creature::think">
+<area shape="rect" id="node2" href="$class_neuron_network.html#afbbd6a0533c035b124bab8625d0b70c7" title="NeuronNetwork::update" alt="" coords="176,5,333,32"/>
+<area shape="rect" id="node3" href="$class_creature.html#a103c8db13d85ce2b3dba72d04e3e46b1" title="Creature::move" alt="" coords="200,56,309,83"/>
+<area shape="rect" id="node4" href="$class_bad_number_of_input_exception.html#a04c602e0800b87adb3b731b97d6dd312" title="BadNumberOfInputException\l::what" alt="" coords="160,107,349,149"/>
+</map>

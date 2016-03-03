@@ -1,0 +1,9 @@
+<map id="exception" name="exception">
+<area shape="rect" id="node2" href="$class_bad_map_object_exception.html" title="{BadMapObjectException\n||+ BadMapObjectException()\l+ ~BadMapObjectException()\l+ what()\l}" alt="" coords="5,131,200,237"/>
+<area shape="rect" id="node3" href="$class_bad_number_of_input_exception.html" title="{BadNumberOfInputException\n||+ BadNumberOfInputException()\l+ ~BadNumberOfInputException()\l+ what()\l}" alt="" coords="225,131,442,237"/>
+<area shape="rect" id="node4" href="$class_event_list_not_created_exception.html" title="{EventListNotCreatedException\n||+ EventListNotCreatedException()\l+ ~EventListNotCreatedException()\l+ what()\l}" alt="" coords="467,131,693,237"/>
+<area shape="rect" id="node5" href="$class_not_enough_brain_exception.html" title="{NotEnoughBrainException\n||+ NotEnoughBrainException()\l+ ~NotEnoughBrainException()\l+ what()\l}" alt="" coords="717,131,920,237"/>
+<area shape="rect" id="node6" href="$class_not_enough_creature_exception.html" title="{NotEnoughCreatureException\n||+ NotEnoughCreatureException()\l+ ~NotEnoughCreatureException()\l+ what()\l}" alt="" coords="944,131,1165,237"/>
+<area shape="rect" id="node7" href="$class_not_same_struct_exception.html" title="{NotSameStructException\n||+ NotSameStructException()\l+ ~NotSameStructException()\l+ what()\l}" alt="" coords="1189,131,1387,237"/>
+<area shape="rect" id="node8" href="$class_window_not_created_exception.html" title="{WindowNotCreatedException\n||+ WindowNotCreatedException()\l+ ~WindowNotCreatedException()\l+ what()\l}" alt="" coords="1411,131,1629,237"/>
+</map>

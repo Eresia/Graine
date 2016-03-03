@@ -1,0 +1,6 @@
+<map id="Material" name="Material">
+<area shape="rect" id="node2" href="$class_air_material.html" title="{AirMaterial\n||+ AirMaterial()\l+ ~AirMaterial()\l+ getName()\l+ isCrossable()\l+ getType()\l+ getInstance()\l}" alt="" coords="5,204,117,355"/>
+<area shape="rect" id="node3" href="$class_dirt_material.html" title="{DirtMaterial\n||+ DirtMaterial()\l+ ~DirtMaterial()\l+ getName()\l+ isCrossable()\l+ getType()\l+ getInstance()\l}" alt="" coords="142,204,258,355"/>
+<area shape="rect" id="node4" href="$class_food_material.html" title="{FoodMaterial\n||+ FoodMaterial()\l+ ~FoodMaterial()\l+ getName()\l+ isCrossable()\l+ getType()\l+ getInstance()\l}" alt="" coords="283,204,408,355"/>
+<area shape="rect" id="node5" href="$class_water_material.html" title="{WaterMaterial\n||+ WaterMaterial()\l+ ~WaterMaterial()\l+ getName()\l+ isCrossable()\l+ getType()\l+ getInstance()\l}" alt="" coords="432,204,563,355"/>
+</map>

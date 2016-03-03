@@ -1,0 +1,7 @@
+<map id="RandFloat" name="RandFloat">
+<area shape="rect" id="node2" href="$_usefull_8hpp.html#a40235c4b84939a970aa1ef8edc956003" title="RandFloat" alt="" coords="155,5,236,32"/>
+<area shape="rect" id="node3" href="$_usefull_8hpp.html#adc0187438adfc82a45465f650e40e303" title="RandomClamped" alt="" coords="135,56,256,83"/>
+<area shape="rect" id="node4" href="$class_neuron.html#a79f9c4a073786fb9c4bd00ab39b7751a" title="Neuron::Neuron" alt="" coords="304,31,416,57"/>
+<area shape="rect" id="node5" href="$class_neuron.html#a652f08a44ffdd9c3ba8c0bc9d6810f03" title="Neuron::mutate" alt="" coords="305,81,415,108"/>
+<area shape="rect" id="node6" href="$class_neuron.html#a9cfc422c795d142914150af0b2385d85" title="Neuron::Neuron" alt="" coords="464,81,576,108"/>
+</map>

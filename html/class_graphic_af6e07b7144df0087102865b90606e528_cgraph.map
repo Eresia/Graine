@@ -1,0 +1,5 @@
+<map id="Graphic::display_map" name="Graphic::display_map">
+<area shape="rect" id="node2" href="$class_controller.html#aeb69f702f5f8214f838f8b211e2c920c" title="Controller::getNbCreaMax" alt="" coords="205,5,376,32"/>
+<area shape="rect" id="node3" href="$class_controller.html#a8d535e7c32a8c6460be2d8bcc27bb176" title="Controller::getPositionCrea" alt="" coords="202,56,379,83"/>
+<area shape="rect" id="node4" href="$class_controller.html#a263ccb8a81f0600791cf972cedaedd98" title="Controller::getRotationCrea" alt="" coords="201,107,380,133"/>
+</map>
