@@ -31,6 +31,9 @@
 		void setCaseMaterial(int x, int y, Material* m);
 		Material* getCaseMaterial(int x, int y);
 
+		bool onSpecialCase(Position pos, TypeMaterial m);
+		bool onSpecialCase(int x, int y, TypeMaterial m);
+
 		CaseMap** getMap();
 		int getSizeX();
 		int getSizeY();

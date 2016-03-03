@@ -6,6 +6,8 @@
 #include <vector>
 #include "../Feature.hpp"
 
+enum OutputId : int {OUTPUT_MOVEMENT_LEFT, OUTPUT_MOVEMENT_RIGHT, OUTPUT_EAT};
+
 class OutputFeature : public Feature{
 
 	private:

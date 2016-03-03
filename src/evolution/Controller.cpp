@@ -57,18 +57,17 @@ void Controller::update(){
 }
 
 bool Controller::doneObjective(){
-	bool result = false;
+	int nb = 0;
 	for(int i = 0; i < nbCreaMax; i++){
 		int xObj = creatures[i]->getObjective().getX();
 		int yObj = creatures[i]->getObjective().getY();
 		int x = creatures[i]->getPosition().getX() / SIZE_IMAGE_H;
 		int y = creatures[i]->getPosition().getY() / SIZE_IMAGE_W;
 		if((x == xObj) && (y == yObj)){
-			result = true;
-			break;
+			nb++;
 		}
 	}
-	return result;
+	return (nb>=1);
 }
 
 void Controller::createCreatures(){
@@ -79,7 +78,7 @@ void Controller::createCreatures(){
 		Position pos;
 		Creature* crea;
 		pos = getSpawn(i);
-		crea = new Creature(idCounter, pos, mapObj.getObjective());
+		crea = new Creature(idCounter, map, pos, mapObj.getObjective());
 		addFeatures(crea);
 		idCounter++;
 		creatures.push_back(crea);
@@ -98,7 +97,7 @@ void Controller::createCreatures(vector<NeuronNetwork> brains){
 		Creature* crea;
 		pos = getSpawn(i);
 
-		crea = new Creature(idCounter, pos, brains[i], mapObj.getObjective());
+		crea = new Creature(idCounter, map, pos, brains[i], mapObj.getObjective());
 		addFeatures(crea);
 		idCounter++;
 		creatures.push_back(crea);
@@ -107,10 +106,12 @@ void Controller::createCreatures(vector<NeuronNetwork> brains){
 }
 
 void Controller::addFeatures(Creature* creature){
-	creature->addInputFeature(new ObjectiveDirection(creature->getObjective().getXRef(), SIZE_IMAGE_H, creature->getPosition().getXRef()));
-	creature->addInputFeature(new ObjectiveDirection(creature->getObjective().getYRef(), SIZE_IMAGE_W, creature->getPosition().getYRef()));
-	creature->addOutputFeature(new Movement());
-	creature->addOutputFeature(new Movement());
+	creature->addFeelingBar(FEELING_FOOD, new FeelingBar(100));
+	creature->addInputFeature(INPUT_OBJ_X, new ObjectiveDirection(creature->getObjective().getXRef(), SIZE_IMAGE_H, creature->getPosition().getXRef()));
+	creature->addInputFeature(INPUT_OBJ_Y, new ObjectiveDirection(creature->getObjective().getYRef(), SIZE_IMAGE_W, creature->getPosition().getYRef()));
+	creature->addOutputFeature(OUTPUT_MOVEMENT_LEFT, new Movement());
+	creature->addOutputFeature(OUTPUT_MOVEMENT_RIGHT, new Movement());
+	creature->addOutputFeature(OUTPUT_EAT, new Eat(creature));
 }
 
 Position Controller::getSpawn(int number){
@@ -162,7 +163,7 @@ Controller::Controller(Map& map) : map(map), nbCrea(1), nbCreaMax(1){
 	MapObjective& mapObj = (MapObjective&) map;
 	Position pos;
 	pos = Position(0, 0);
-	creatures.push_back(new Creature(0, pos, mapObj.getObjective()));
+	creatures.push_back(new Creature(0, map, pos, mapObj.getObjective()));
 }
 
 void Controller::update(int speed){

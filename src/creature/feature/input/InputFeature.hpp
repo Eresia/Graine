@@ -6,6 +6,8 @@
 #include <vector>
 #include "../Feature.hpp"
 
+enum InputId : int {INPUT_OBJ_X, INPUT_OBJ_Y};
+
 class InputFeature : public Feature{
 
 	private:

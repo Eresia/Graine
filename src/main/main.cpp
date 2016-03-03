@@ -16,13 +16,16 @@
 
 using namespace std;
 
+#define NB_CREA 5
+#define TURN_MAX 50
+
 int main(int argc, char** argv){
 
 	MapObjective map(NB_CASE_H,NB_CASE_W);
 	int speed;
 
 	#ifndef MANUAL_CREATURE
-		Controller control(map, 5, 30);
+		Controller control(map, NB_CREA, TURN_MAX);
 		speed = 30;
 	#else
 		Controller control(map);

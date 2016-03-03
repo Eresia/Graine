@@ -6,8 +6,8 @@
 #include <vector>
 #include "../neuronNetwork/NeuronNetwork.hpp"
 
-//#define EGALITARY
-#define FAVORITISM
+#define EGALITARY
+//#define FAVORITISM
 
 class Evolution{
 

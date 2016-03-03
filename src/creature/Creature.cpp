@@ -9,32 +9,39 @@
 */
 #include "Creature.hpp"
 
-Creature::Creature(int id, Position position) : Creature(id, position, NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
+using namespace std;
+
+Creature::Creature(int id, Map& map, Position position) : Creature(id, map, position, NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
 	objective = Position(0, 0);
 }
 
-Creature::Creature(int id, Position position, NeuronNetwork brain) : id(id), position(position), rotation(0), brain(brain){
+Creature::Creature(int id, Map& map, Position position, NeuronNetwork brain) : id(id), map(map), position(position), rotation(0), brain(brain){
 	objective = Position(0, 0);
+	feelingBars[FEELING_FOOD] = NULL;
+	feelingBars[FEELING_SLEEP] = NULL;
+	feelingBars[FEELING_WATER] = NULL;
 }
 
-Creature::Creature(int id, Position position, Position& objective) : Creature(id, position, NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
+Creature::Creature(int id, Map& map, Position position, Position& objective) : Creature(id, map, position,
+																	NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
 	this->objective = objective;
 }
 
-Creature::Creature(int id, Position position, NeuronNetwork brain, Position& objective) : Creature(id, position, brain){
+Creature::Creature(int id, Map& map, Position position, NeuronNetwork brain, Position& objective) : Creature(id, map, position, brain){
 	this->objective = objective;
 }
 
-Creature::Creature(Creature& copy) : id(copy.id), position(copy.position), rotation(copy.rotation), brain(copy.brain){
+/*Creature::Creature(Creature& copy) : id(copy.id), map(copy.map), position(copy.position), rotation(copy.rotation), brain(copy.brain){
 
-}
+}*/
 
 void Creature::think(){
 	vector<double> infos;
 	vector<double> result;
-	for(int i = 0; i < (int) inputFeatures.size(); i++){
-		inputFeatures[i]->update();
-		infos.push_back(inputFeatures[i]->getValue());
+	int i = 0;
+	for (std::map<InputId, InputFeature*>::iterator it = inputFeatures.begin(); it != inputFeatures.end(); it++){
+		it->second->update();
+		infos.push_back(it->second->getValue());
 	}
 	try{
 		result = brain.update(infos);
@@ -42,8 +49,9 @@ void Creature::think(){
 			throw BadNumberOfOutputException("Bad number of outputs");
 		}
 
-		for(int i = 0; i < (int) outputFeatures.size(); i++){
-			outputFeatures[i]->update(result[i]);
+		for (std::map<OutputId, OutputFeature*>::iterator it = outputFeatures.begin(); it != outputFeatures.end(); it++){
+			it->second->update(result[i]);
+			i++;
 		}
 
 		doActions();
@@ -56,18 +64,27 @@ void Creature::think(){
 	}
 }
 
+void Creature::eat(){
+	if(map.onSpecialCase(position.getX()/SIZE_IMAGE_H, position.getY()/SIZE_IMAGE_W, FoodMaterial::getInstance()->getType())){
+		feelingBars[FEELING_FOOD]->addPercent(20);
+	}
+}
+
 void Creature::doActions(){
-	move(outputFeatures[0]->getValue(), outputFeatures[1]->getValue());
+	move(outputFeatures[OUTPUT_MOVEMENT_LEFT]->getValue(), outputFeatures[OUTPUT_MOVEMENT_RIGHT]->getValue());
 }
 
 void Creature::move(int speed){
 	position.updatePosition(sin(rotation) * speed, cos(rotation) * speed);
+	if(feelingBars[FEELING_FOOD] != NULL){
+		feelingBars[FEELING_FOOD]->removePercent(1);
+	}
 }
 
 void Creature::move(double forceLeft, double forceRight){
 	double force = forceRight - forceLeft;
 	rotation += force;
-	move(forceRight + forceLeft);
+	move((forceRight + forceLeft)*SPEED_MULT);
 }
 
 void Creature::turnLeft(){
@@ -84,12 +101,16 @@ void Creature::turnRight(){
 	}
 }
 
-void Creature::addInputFeature(InputFeature* input){
-	inputFeatures.push_back(input);
+void Creature::addInputFeature(InputId id, InputFeature* input){
+	inputFeatures[id]= input;
 }
 
-void Creature::addOutputFeature(OutputFeature* output){
-	outputFeatures.push_back(output);
+void Creature::addOutputFeature(OutputId id, OutputFeature* output){
+	outputFeatures[id] = output;
+}
+
+void Creature::addFeelingBar(FeelingBarId id, FeelingBar* bar){
+	feelingBars[id] = bar;
 }
 
 Position& Creature::getPosition(){

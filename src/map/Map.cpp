@@ -28,6 +28,17 @@ Map::~Map(){
 	delete[] map;*/
 }
 
+bool Map::onSpecialCase(Position pos, TypeMaterial m){
+	return onSpecialCase(pos.getX(), pos.getY(), m);
+}
+
+bool Map::onSpecialCase(int x, int y, TypeMaterial m){
+	if((x < 0) || (x >= NB_CASE_H) || (y < 0) || (y >= NB_CASE_W)){
+		return false;
+	}
+	return (map[x][y].getMaterial()->getType() == m);
+}
+
 void Map::setCase(int x, int y, CaseMap c){
 	map[x][y] = c;
 }

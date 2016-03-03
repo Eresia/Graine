@@ -72,7 +72,7 @@ double Neuron::mutate(double value){
 * @return a complicated value
 */
 double Neuron::stimule(vector<double> stim){
-	int sumWeight = 0;
+	double sumWeight = 0;
 
 	if((int) stim.size() != nbInput){
 		throw BadNumberOfInputException("Neuron needs " + to_string(nbInput) + " inputs, " + to_string(stim.size()) + " sent");
@@ -80,9 +80,11 @@ double Neuron::stimule(vector<double> stim){
 	for(int i = 0; i < nbInput; i++){
 		sumWeight += stim[i] * mult[i];
 	}
+	//return signoid(sumWeight/nbInput);
 	return sumWeight/nbInput;
 }
 
-double Neuron::fonct(double value){
+double Neuron::signoid(double value){
 	return ( 1 / ( 1 + exp(-value / 1)));
+	//return ( exp(value) / pow( 1 + exp(-value / 1), 2));
 }
