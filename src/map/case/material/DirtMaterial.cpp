@@ -1,3 +1,12 @@
+/**
+*	@file DirtMaterial.cpp
+*	Purpose : Define the behavior of the dirt material.
+*
+*	@author Eresia & Monsieur
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "DirtMaterial.hpp"
 
 Material* DirtMaterial::instance = new DirtMaterial();

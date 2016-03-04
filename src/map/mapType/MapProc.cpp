@@ -2,7 +2,7 @@
 *	@file MapProc.cpp
 *	Purpose : Part of the procedurale generation of the map, currently holding water generation.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense

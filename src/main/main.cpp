@@ -2,7 +2,7 @@
 *	@file main.cpp
 *	Purpose : Just the main function, call Graphic functions.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense

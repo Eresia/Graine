@@ -2,7 +2,7 @@
 *	@file Neuron.cpp
 *	Purpose : Define the behavior of a Neuron.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense
@@ -80,11 +80,16 @@ double Neuron::stimule(vector<double> stim){
 	for(int i = 0; i < nbInput; i++){
 		sumWeight += stim[i] * mult[i];
 	}
-	//return signoid(sumWeight/nbInput);
+	//return sigmoid(sumWeight/nbInput);
 	return sumWeight/nbInput;
 }
 
-double Neuron::signoid(double value){
+/**
+* Sigmoid for the activation function of the neural network
+* @param value value for the function
+* @return the sigmoid function (actually not the sigmoid but tanh or another function)
+*/
+double Neuron::sigmoid(double value){
 	return ( 1 / ( 1 + exp(-value / 1)));
 	//return ( exp(value) / pow( 1 + exp(-value / 1), 2));
 }

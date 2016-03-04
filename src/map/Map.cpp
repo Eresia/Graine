@@ -2,7 +2,7 @@
 *	@file Map.cpp
 *	Purpose : Map size and materials definition class.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense

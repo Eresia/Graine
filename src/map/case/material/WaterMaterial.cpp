@@ -1,3 +1,12 @@
+/**
+*	@file WaterMaterial.cpp
+*	Purpose : Define the behavior of the water material
+*
+*	@author Eresia & Monsieur
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "WaterMaterial.hpp"
 
 Material* WaterMaterial::instance = new WaterMaterial();

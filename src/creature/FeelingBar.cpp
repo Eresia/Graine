@@ -1,3 +1,12 @@
+/**
+*	@file FeelingBar.cpp
+*	Purpose : Control the global feeling of the creature.
+*
+*	@author Eresia & Monsieur
+*	@version 1.0
+* @date 03/02/2016
+* @copyright The Unlicense
+*/
 #include "FeelingBar.hpp"
 
 FeelingBar::FeelingBar(double max) : max(max), value(max){

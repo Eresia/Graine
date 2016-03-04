@@ -2,7 +2,7 @@
 *	@file Position.cpp
 *	Purpose : Definig up positions of objects in the map.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense
