@@ -23,6 +23,11 @@ NeuronLayer::NeuronLayer(int nbNeuron, int nbInputPerNeuron, NeuronLayer& father
 	}
 }
 
+/**
+* Stimulation of a NeuronLayer
+* @param stim vector of double values
+* @return a vector containing double values with results of the stimulation
+*/
 vector<double> NeuronLayer::stimule(vector<double> stim){
 	vector<double> results;
 	for(int i = 0; i < nbNeuron; i++){
