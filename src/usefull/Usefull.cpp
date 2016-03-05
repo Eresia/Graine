@@ -2,7 +2,7 @@
 *	@file Usefull.cpp
 *	Purpose : Some usefull functions returning random floats.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense

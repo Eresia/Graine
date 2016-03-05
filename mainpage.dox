@@ -5,9 +5,31 @@
  * <b>WorldOfSwag</b> : Génération procédurale de créatures et
  * apprentissage par réseaux de neurones
  *
- * \section Organisation
- *   \subsection Membres
- *   \subsection Contexte
- *   \subsection Améliorations
+ * \section orga_sec Organisation
+ *   \subsection memb_sec Membres
+ *     \subsubsection res_sec Réseaux de neurones
+ *      <ul>
+ *       <li>Bastien LEPESANT</li>
+ *       <li>Thomas LEFEBVRE</li>
+ *      </ul>
+ *      \subsubsection cre_sec Génération de créatures
+ *      <ul>
+ *       <li>Filipe GAMA</li>
+ *       <li>Lucas NICOSIA</li>
+ *       <li>Vincent MONOT</li>
+ *      </ul>
+ *   \subsection cont_sec Contexte
+ *       <p>Actuellement en L3 Informatique à l'université de Cergy-Pontoise et dans
+ *       le cadre du projet de synthèse, nous avons décidé de créer une simulation qui,
+ *       d'une part permet la génération/reproduction de créatures à partir de facteurs génétiques,
+ *       et d'autre part la gestion des besoins de ces créatures et l'apprentissage par réseaux de neurones.</p>
+ *   \subsection ame_sec Améliorations
+ *      <p>Conscient de la complexité de la tâche, du peu de temps imparti mais aussi de notre base de connaissances rudimentaires dans le domaine
+ *      de l'intelligence artificielle, nous avons dû revoir nos exigences à la baisse en vue de la soutenance de projet.
+ *      De nombreux sacrifices ont donc été fait sur la partie graphique de la simulation, l'ensemble devait tourner sur le moteur Unreal Engine 4 (en 3D donc)
+ *      mais cela n'a pas été implementé (nous disposons actuellement d'un rendu en 2 dimensions via une grille).
+ *      Egalement, le projet étant divisé en 2 parties, nous devions, à terme, réunir ces 2 parties pour ne former qu'un seul ensemble cohérent, cela n'a pas pu être fait.
+ *      Cependant les 2 parties sont pensées pour s'imbriquer correctement et le projet présenté cette année n'est, espérons le, qu'une ébauche d'un projet de master à la hauteur
+ *      de nos ambitions.</p>
  *
  */

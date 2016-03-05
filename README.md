@@ -7,3 +7,6 @@ Ce projet est divisé en deux parties :
 - La partie intelligence artificielle des créatures qui a pour but l'apprentissage de la survie et se basans sur la fusion d'un réseau de neuronne et d'algorithmes génétiques.
 
 Ce dépot est axé sur la partie Intelligence Artificielle
+
+Lien vers notre chaine Youtube pour observer l'avancement du projet :
+[WorldOfSwag](https://www.youtube.com/channel/UCm7d0uD_0_0Cycn0mbER40A)

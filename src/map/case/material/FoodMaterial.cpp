@@ -1,3 +1,12 @@
+/**
+*	@file FoodMaterial.cpp
+*	Purpose : Define the behavior of the food material.
+*
+*	@author Eresia & Monsieur
+*	@version 1.0
+* @date 29/02/2016
+* @copyright The Unlicense
+*/
 #include "FoodMaterial.hpp"
 
 Material* FoodMaterial::instance = new FoodMaterial();

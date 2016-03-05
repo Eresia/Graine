@@ -2,7 +2,7 @@
 *	@file CaseMap.cpp
 *	Purpose : Define the differente cases of the map (dirt component).
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense

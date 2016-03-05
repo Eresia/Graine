@@ -2,7 +2,7 @@
 *	@file NeuronNetwork.cpp
 *	Purpose : Define the behavior of a NeuronNetwork using NeuronLayer functions.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense

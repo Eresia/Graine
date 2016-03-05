@@ -2,7 +2,7 @@
 *	@file Controller.cpp
 *	Purpose : Controller of the whole simulation, used to update the map and generate the creatures among other things.
 *
-*	@author Eresia
+*	@author Eresia & Monsieur
 *	@version 1.0
 * @date 29/02/2016
 * @copyright The Unlicense
