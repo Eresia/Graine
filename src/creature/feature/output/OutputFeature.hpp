@@ -14,6 +14,7 @@ class OutputFeature : public Feature{
 
 
 	public:
+		OutputFeature();
 		virtual void update(double value) = 0;
 };
 

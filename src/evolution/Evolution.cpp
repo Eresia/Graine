@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Evolution::Evolution(vector<NeuronNetwork> brains) : brains(brains){
+Evolution::Evolution(vector<NeuronNetwork> brains, int nbCreaMax) : brains(brains), nbCreaMax(nbCreaMax){
 
 }
 
@@ -27,10 +27,19 @@ vector<NeuronNetwork> Evolution::evolve(){
 
 vector<NeuronNetwork> Evolution::egalitary(){
 	vector<NeuronNetwork> result;
-	for(int i = 0; i < (int) brains.size(); i++){
-		for(int j = 0; j < (int) brains.size(); j++){
-			if(i != j){
-				result.push_back(NeuronNetwork(brains[i], brains[j]));
+	while((int) result.size() < nbCreaMax){
+		for(int i = 0; i < (int) brains.size(); i++){
+			for(int j = 0; j < (int) brains.size(); j++){
+				if(i != j){
+					result.push_back(NeuronNetwork(brains[i], brains[j]));
+				}
+
+				if((int) result.size() >= nbCreaMax){
+					break;
+				}
+			}
+			if((int) result.size() >= nbCreaMax){
+				break;
 			}
 		}
 	}
@@ -39,12 +48,20 @@ vector<NeuronNetwork> Evolution::egalitary(){
 
 vector<NeuronNetwork> Evolution::favoritism(){
 	vector<NeuronNetwork> result;
-	for(int i = 0; i < (int) brains.size(); i++){
-		for(int j = 0; j < ((int) brains.size()-i); j++){
-			if(i != j){
-				result.push_back(NeuronNetwork(brains[i], brains[j]));
+	/*while((int) result.size() < nbCreaMax){
+		for(int i = 0; i < (int) brains.size(); i++){
+			for(int j = 0; j < ((int) brains.size()-i); j++){
+				if(i != j){
+					result.push_back(NeuronNetwork(brains[i], brains[j]));
+				}
+				else if((int) result.size() >= nbCreaMax){
+					break;
+				}
+			}
+			if((int) result.size() >= nbCreaMax){
+				break;
 			}
 		}
-	}
+	}*/
 	return result;
 }

@@ -22,7 +22,7 @@
 #define BRAIN_HIDDEN_LAYER 1
 #define BRAIN_NEURON_PER_LAYER 6
 
-#define SPEED_MULT 2
+#define SPEED_MULT 1
 
 class Creature{
 
@@ -43,7 +43,7 @@ class Creature{
 		Creature(int id, Map& map, Position position, NeuronNetwork brain);
 		Creature(int id, Map& map, Position position, Position& objective);
 		Creature(int id, Map& map, Position position, NeuronNetwork brain, Position& objective);
-		//Creature(Creature& copy);
+		Creature(Creature& copy);
 		void think();
 		void eat();
 		void doActions();
@@ -54,12 +54,15 @@ class Creature{
 
 		void addInputFeature(InputId, InputFeature* input);
 		void addOutputFeature(OutputId, OutputFeature* output);
+		void clearFeatures();
 
 		void addFeelingBar(FeelingBarId id, FeelingBar* bar);
+		double getFeelingValue(FeelingBarId id) const;
 
 		Position& getPosition();
 		void setPosition(Position position);
 		double getRotation() const;
+		double& getRotationRef();
 		void setRotation(double rotation);
 		int getId() const;
 		NeuronNetwork& getBrain();
@@ -68,6 +71,7 @@ class Creature{
 		void setObjective(double x, double y);
 
 		static bool comparePosition(const Creature* c1, const Creature* c2);
+		static bool compareHunger(const Creature* c1, const Creature* c2);
 };
 
 #endif

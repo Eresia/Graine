@@ -10,6 +10,7 @@
 #include "../creature/FeelingBar.hpp"
 #include "../creature/feature/input/InputFeature.hpp"
 #include "../creature/feature/input/ObjectiveDirection.hpp"
+#include "../creature/feature/input/InputDouble.hpp"
 #include "../creature/feature/output/OutputFeature.hpp"
 #include "../creature/feature/output/Movement.hpp"
 #include "../creature/feature/output/Eat.hpp"
@@ -20,26 +21,20 @@
 
 #define MIN_CREA 2
 
-#if defined(EGALITARY)
-	#define MAX_CREA(X) X*(X-1)
-#elif defined(FAVORITISM)
-	#define MAX_CREA(X) sumFrom0ToN(X) + X/2
-#else
-	#define MAX_CREA(X) X*(X-1)
-#endif
-
 enum Rotation : bool {ROTATE_LEFT, ROTATE_RIGHT};
 
 class Controller{
 
 	private:
 		Map& map;
-		int nbCrea, nbCreaMax;
+		int nbCreaSelectMax, nbCreaMax;
 		int nbGen;
 		int turn, turnMax;
 		std::vector<Creature*> creatures;
 		int idCounter;
+		std::vector<NeuronNetwork> lastBestBrains;
 
+		void selectBest();
 		void createCreatures();
 		void createCreatures(vector<NeuronNetwork> brains);
 		void addFeatures(Creature* creature);
@@ -47,11 +42,10 @@ class Controller{
 		void printNbGen();
 
 	public:
-		Controller(Map& map, int nbCrea, int turnMax);
+		Controller(Map& map, int nbCreaSelectMax, int nbCreaMax, int turnMax);
 		void update();
 		bool doneObjective();
 
-		int getNbCrea() const;
 		int getNbCreaMax() const;
 		Position& getPositionCrea(int crea);
 		int getRotationCrea(int crea) const;

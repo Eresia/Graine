@@ -11,10 +11,11 @@
 
 using namespace std;
 
-Controller::Controller(Map& map, int nbCrea, int turnMax) : map(map), nbCrea(nbCrea), nbCreaMax(MAX_CREA(nbCrea)), nbGen(0), turn(0), turnMax(turnMax), idCounter(0){
+Controller::Controller(Map& map, int nbCreaSelectMax, int nbCreaMax, int turnMax) : map(map), nbCreaSelectMax(nbCreaSelectMax), nbCreaMax(nbCreaMax), nbGen(0), turn(0),
+									turnMax(turnMax), idCounter(0){
 
-	if(nbCrea < MIN_CREA){
-		throw NotEnoughCreatureException(to_string(MIN_CREA) + " or more creature expected, " + to_string(nbCrea) + " given");
+	if(nbCreaSelectMax < MIN_CREA){
+		throw NotEnoughCreatureException(to_string(MIN_CREA) + " or more creature expected, " + to_string(nbCreaSelectMax) + " given");
 	}
 
 	createCreatures();
@@ -33,19 +34,10 @@ void Controller::update(){
 			turn++;
 		}
 		else{
-			vector<NeuronNetwork> bestBrains;
 			vector<NeuronNetwork> newBrains;
-			Evolution* evolution;
-			for(int i = 0; i < nbCreaMax; i++){
-				creatures[i]->getPosition() -= creatures[i]->getObjective();
-			}
-
-			partial_sort(creatures.begin(), creatures.begin() + nbCrea, creatures.end(), Creature::comparePosition);
-			for(int i = 0; i < nbCrea; i++){
-				bestBrains.push_back(creatures[i]->getBrain());
-			}
-			evolution = new Evolution(bestBrains);
-			newBrains = evolution->evolve();
+			selectBest();
+			Evolution evolution(lastBestBrains, nbCreaMax-lastBestBrains.size());
+			newBrains = evolution.evolve();
 			createCreatures(newBrains);
 			turn = 0;
 			nbGen++;
@@ -54,6 +46,38 @@ void Controller::update(){
 			#endif
 		}
 	#endif
+}
+
+void Controller::selectBest(){
+	int nbSelect = 0;
+	lastBestBrains.clear();
+
+	partial_sort(creatures.begin(), creatures.begin() + nbCreaSelectMax, creatures.end(), Creature::compareHunger);
+	for(int i = 0; i < nbCreaSelectMax; i++){
+		if(creatures[i]->getFeelingValue(FEELING_FOOD)){
+			nbSelect++;
+			lastBestBrains.push_back(creatures[i]->getBrain());
+		}
+		else{
+			break;
+		}
+	}
+	if(nbSelect < 2){
+		vector<Creature*> copy;
+		for(int i = 0; i < nbCreaMax; i++){
+			creatures[i]->getPosition() -= creatures[i]->getObjective();
+		}
+
+		partial_sort(creatures.begin(), creatures.begin() + nbCreaSelectMax, creatures.end(), Creature::comparePosition);
+
+		for(int i = 0; i < nbCreaSelectMax; i++){
+			creatures[i]->getPosition() += creatures[i]->getObjective();
+			lastBestBrains.push_back(creatures[i]->getBrain());
+		}
+	}
+	else{
+		cout << "By Eat" << endl;
+	}
 }
 
 bool Controller::doneObjective(){
@@ -87,17 +111,24 @@ void Controller::createCreatures(){
 
 void Controller::createCreatures(vector<NeuronNetwork> brains){
 	MapObjective& mapObj = (MapObjective&) map;
-	if((int) brains.size() != nbCreaMax){
+	if((int) brains.size() != nbCreaMax-((int) lastBestBrains.size())){
 		throw NotEnoughCreatureException("Evolution failed, " + to_string(brains.size()) + " brains given, " + to_string(nbCreaMax) + " attempt");
 	}
 
 	creatures.clear();
 	for(int i = 0; i < nbCreaMax; i++){
+		NeuronNetwork* brain;
+		if(i < (int) lastBestBrains.size()){
+			brain = &lastBestBrains[i];
+		}
+		else{
+			brain = &brains[i-lastBestBrains.size()];
+		}
 		Position pos;
 		Creature* crea;
 		pos = getSpawn(i);
 
-		crea = new Creature(idCounter, map, pos, brains[i], mapObj.getObjective());
+		crea = new Creature(idCounter, map, pos, *brain, mapObj.getObjective());
 		addFeatures(crea);
 		idCounter++;
 		creatures.push_back(crea);
@@ -109,6 +140,9 @@ void Controller::addFeatures(Creature* creature){
 	creature->addFeelingBar(FEELING_FOOD, new FeelingBar(100));
 	creature->addInputFeature(INPUT_OBJ_X, new ObjectiveDirection(creature->getObjective().getXRef(), SIZE_IMAGE_H, creature->getPosition().getXRef()));
 	creature->addInputFeature(INPUT_OBJ_Y, new ObjectiveDirection(creature->getObjective().getYRef(), SIZE_IMAGE_W, creature->getPosition().getYRef()));
+	//creature->addInputFeature(INPUT_MOVE_X, new InputDouble(creature->getPosition().getXRef()));
+	//creature->addInputFeature(INPUT_MOVE_Y, new InputDouble(creature->getPosition().getYRef()));
+	//creature->addInputFeature(INPUT_DIRECTION, new InputDouble(creature->getRotationRef()));
 	creature->addOutputFeature(OUTPUT_MOVEMENT_LEFT, new Movement());
 	creature->addOutputFeature(OUTPUT_MOVEMENT_RIGHT, new Movement());
 	creature->addOutputFeature(OUTPUT_EAT, new Eat(creature));
@@ -133,10 +167,6 @@ Position Controller::getSpawn(int number){
 	return pos;
 }
 
-int Controller::getNbCrea() const{
-	return nbCrea;
-}
-
 int Controller::getNbCreaMax() const{
 	return nbCreaMax;
 }
@@ -159,7 +189,7 @@ int Controller::getNbGen(){
 
 /*========================================DEBUG METHODS ====================================*/
 
-Controller::Controller(Map& map) : map(map), nbCrea(1), nbCreaMax(1){
+Controller::Controller(Map& map) : map(map), nbCreaSelectMax(1), nbCreaMax(1){
 	MapObjective& mapObj = (MapObjective&) map;
 	Position pos;
 	pos = Position(0, 0);

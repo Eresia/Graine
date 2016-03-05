@@ -17,7 +17,7 @@ class Neuron{
 		int nbInput;
 		vector<double> mult;
 
-		double signoid(double value);
+		double signoid(double x);
 
 	public:
 		Neuron(int nbInput);

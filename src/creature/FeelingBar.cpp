@@ -30,6 +30,10 @@ double FeelingBar::getValue(){
 	return value;
 }
 
-double FeelingBar::getPercent(){
+double FeelingBar::getValueInPercent(){
 	return (value/max) * 100;
+}
+
+double FeelingBar::getPercent(){
+	return max / 100;
 }

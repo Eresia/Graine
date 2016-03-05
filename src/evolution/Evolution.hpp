@@ -13,12 +13,13 @@ class Evolution{
 
 	private:
 		std::vector<NeuronNetwork> brains;
+		int nbCreaMax;
 
 		vector<NeuronNetwork> egalitary();
 		vector<NeuronNetwork> favoritism();
 
 	public:
-		Evolution(std::vector<NeuronNetwork> brains);
+		Evolution(std::vector<NeuronNetwork> brains, int nbCreaMax);
 		vector<NeuronNetwork> evolve();
 };
 

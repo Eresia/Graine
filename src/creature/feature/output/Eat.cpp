@@ -1,6 +1,6 @@
 #include "Eat.hpp"
 
-Eat::Eat(Creature* creature) : creature(creature){
+Eat::Eat(Creature* creature) : OutputFeature(), creature(creature){
 
 }
 

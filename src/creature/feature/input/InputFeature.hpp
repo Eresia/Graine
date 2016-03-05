@@ -6,7 +6,7 @@
 #include <vector>
 #include "../Feature.hpp"
 
-enum InputId : int {INPUT_OBJ_X, INPUT_OBJ_Y};
+enum InputId : int {INPUT_OBJ_X, INPUT_OBJ_Y, INPUT_MOVE_X, INPUT_MOVE_Y, INPUT_DIRECTION};
 
 class InputFeature : public Feature{
 
@@ -14,6 +14,7 @@ class InputFeature : public Feature{
 
 
 	public:
+		InputFeature();
 		virtual void update() = 0;
 };
 
