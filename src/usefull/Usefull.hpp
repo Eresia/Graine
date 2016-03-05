@@ -19,8 +19,11 @@
 #endif
 
 double RandFloat();
+double RandFloat(double min, double max);
 double RandFloat(double max);
 double RandomClamped();
+double RandomClamped(double min, double max);
+double RandomClamped(double max);
 int sumFrom0ToN(int n);
 
 #endif

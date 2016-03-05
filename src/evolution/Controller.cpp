@@ -75,9 +75,6 @@ void Controller::selectBest(){
 			lastBestBrains.push_back(creatures[i]->getBrain());
 		}
 	}
-	else{
-		cout << "By Eat" << endl;
-	}
 }
 
 bool Controller::doneObjective(){
@@ -150,19 +147,28 @@ void Controller::addFeatures(Creature* creature){
 
 Position Controller::getSpawn(int number){
 	MapObjective& mapObj = (MapObjective&) map;
+	double objX = mapObj.getObjective().getX();
+	double objY = mapObj.getObjective().getY();
 	Position pos;
 	double spawnX;
 	double spawnY;
 
-	/*do{
-		spawnY = rand() % (NB_CASE_W-1);
-		spawnX = rand() % (NB_CASE_H-1);
-	}while(map.getCaseMaterial(spawnX, spawnY) == FoodMaterial::getInstance());
-
-	pos = Position(spawnX*SIZE_IMAGE_H, spawnY*SIZE_IMAGE_W);*/
-
-	spawnX = (mapObj.getObjective().getX() + 10*sin(number*((M_PI/10) + (M_PI/20))))*SIZE_IMAGE_H;
-	spawnY = (mapObj.getObjective().getY() + 10*cos(number*((M_PI/10) + (M_PI/20))))*SIZE_IMAGE_W;
+	#ifdef SPAWN_RANDOM
+		double distance;
+		do{
+			double diffX, diffY;
+			spawnY = RandFloat(NB_CASE_W-1);
+			spawnX = RandFloat(NB_CASE_H-1);
+			diffX = objX - spawnX;
+			diffY = objY - spawnY;
+			distance = sqrt(diffX*diffX + diffY*diffY);
+		}while(distance < RANDOM_PERIMETER);
+		spawnY*=SIZE_IMAGE_W;
+		spawnX*=SIZE_IMAGE_H;
+	#else
+		spawnX = (objX + RANDOM_PERIMETER*sin((double)(number)*(((2*M_PI)/SPAWN_SPREADING))))*SIZE_IMAGE_H;
+		spawnY = (objY + RANDOM_PERIMETER*cos((double)(number)*(((2*M_PI)/SPAWN_SPREADING))))*SIZE_IMAGE_W;
+	#endif
 	pos = Position(spawnX, spawnY);
 	return pos;
 }

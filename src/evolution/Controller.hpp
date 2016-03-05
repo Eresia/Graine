@@ -21,6 +21,14 @@
 
 #define MIN_CREA 2
 
+#define SPAWN_RANDOM
+
+#ifndef SPAWN_RANDOM
+	#define SPAWN_SPREADING 1000.0
+#endif
+
+#define RANDOM_PERIMETER 20
+
 enum Rotation : bool {ROTATE_LEFT, ROTATE_RIGHT};
 
 class Controller{

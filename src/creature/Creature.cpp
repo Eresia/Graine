@@ -67,7 +67,6 @@ void Creature::think(){
 void Creature::eat(){
 	if(map.onSpecialCase(position.getX()/SIZE_IMAGE_H, position.getY()/SIZE_IMAGE_W, FoodMaterial::getInstance()->getType())){
 		feelingBars[FEELING_FOOD]->addPercent(20);
-		cout << "Eat : "  << id << endl;
 	}
 }
 
