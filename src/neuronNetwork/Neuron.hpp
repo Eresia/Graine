@@ -8,16 +8,16 @@
 #include "../exception/BadNumberOfInputException.hpp"
 
 //#define THRESHOLD 1.0
-#define RATE_CROSS_OVER 20
-#define RATE_MUTATION 1
+#define RATE_CROSS_OVER 20 //Crossover rate, determine the frequency of crossovers
+#define RATE_MUTATION 1 //Mutation rate, determine the frequency of mutations
 
 class Neuron{
 
 	private:
-		int nbInput;
+		int nbInput; //Number of neurons allocated
 		vector<double> mult;
 
-		double signoid(double value);
+		double sigmoid(double value);
 
 	public:
 		Neuron(int nbInput);
