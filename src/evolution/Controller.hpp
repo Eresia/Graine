@@ -35,19 +35,19 @@ class Controller{
 
 	private:
 		Map& map;
-		int nbCreaSelectMax, nbCreaMax;
-		int nbGen;
+		int nbCreaSelectMax, nbCreaMax; //!< Maximum number of creature allowed to be generated
+		int nbGen; //!< Number of generation the simulation has traveled
 		int turn, turnMax;
 		std::vector<Creature*> creatures;
 		int idCounter;
 		std::vector<NeuronNetwork> lastBestBrains;
 
-		void selectBest();
-		void createCreatures();
-		void createCreatures(vector<NeuronNetwork> brains);
-		void addFeatures(Creature* creature);
-		Position getSpawn(int number);
-		void printNbGen();
+		void selectBest(); //!< Selecting the best specimens we have to construct
+		void createCreatures(); //!< Function of creature's creation
+		void createCreatures(vector<NeuronNetwork> brains);  //!< Creature creation but with NeuronNetwork associated
+		void addFeatures(Creature* creature); //!< Adding some features to the creature (may be usefull in use with the other part of the projet)
+		Position getSpawn(int number); //!< Get the spawning point of each creature
+		void printNbGen(); //!< Print the number of generation the simulation has traveled through
 
 	public:
 		Controller(Map& map, int nbCreaSelectMax, int nbCreaMax, int turnMax);
@@ -59,7 +59,7 @@ class Controller{
 		int getRotationCrea(int crea) const;
 		int getNbGen();
 
-		//Debug methods
+		//!< Debug methods
 		Controller(Map& map);
 		void update(int speed);
 		void update(Rotation rotation);

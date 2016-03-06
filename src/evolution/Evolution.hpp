@@ -13,10 +13,10 @@ class Evolution{
 
 	private:
 		std::vector<NeuronNetwork> brains;
-		int nbCreaMax;
+		int nbCreaMax; //!< Maximum number of creatures allowed 
 
-		vector<NeuronNetwork> egalitary();
-		vector<NeuronNetwork> favoritism();
+		vector<NeuronNetwork> egalitary(); //!< USED Algorithm of selection for each generation
+		vector<NeuronNetwork> favoritism(); //!< NOTUSED Algorithm of selection for each generation
 
 	public:
 		Evolution(std::vector<NeuronNetwork> brains, int nbCreaMax);
