@@ -19,6 +19,7 @@ class FeelingBar{
 		void removePercent(double nbPercent);
 
 		double getValue();
+		double getValueInPercent();
 		double getPercent();
 };
 

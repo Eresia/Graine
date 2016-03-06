@@ -80,7 +80,7 @@ double Neuron::stimule(vector<double> stim){
 	for(int i = 0; i < nbInput; i++){
 		sumWeight += stim[i] * mult[i];
 	}
-	//return sigmoid(sumWeight/nbInput);
+	//return sigùoid(sumWeight);
 	return sumWeight/nbInput;
 }
 
@@ -92,4 +92,5 @@ double Neuron::stimule(vector<double> stim){
 double Neuron::sigmoid(double value){
 	return ( 1 / ( 1 + exp(-value / 1)));
 	//return ( exp(value) / pow( 1 + exp(-value / 1), 2));
+	//return ((exp(x) - exp(-x))/2)/((exp(x) + exp(-x))/2);
 }

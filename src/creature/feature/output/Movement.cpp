@@ -1,6 +1,6 @@
 #include "Movement.hpp"
 
-Movement::Movement(){
+Movement::Movement() : OutputFeature(){
 
 }
 

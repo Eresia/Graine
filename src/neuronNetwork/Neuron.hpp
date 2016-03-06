@@ -17,7 +17,9 @@ class Neuron{
 		int nbInput; //Number of neurons allocated
 		vector<double> mult;
 
-		double sigmoid(double value);
+
+		double sigmoid(double x);
+
 
 	public:
 		Neuron(int nbInput);

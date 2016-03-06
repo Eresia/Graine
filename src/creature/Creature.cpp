@@ -31,9 +31,9 @@ Creature::Creature(int id, Map& map, Position position, NeuronNetwork brain, Pos
 	this->objective = objective;
 }
 
-/*Creature::Creature(Creature& copy) : id(copy.id), map(copy.map), position(copy.position), rotation(copy.rotation), brain(copy.brain){
+Creature::Creature(Creature& copy) : id(copy.id), map(copy.map), position(copy.position), rotation(copy.rotation), brain(copy.brain){
 
-}*/
+}
 
 void Creature::think(){
 	vector<double> infos;
@@ -84,6 +84,16 @@ void Creature::move(int speed){
 void Creature::move(double forceLeft, double forceRight){
 	double force = forceRight - forceLeft;
 	rotation += force;
+	if(rotation <= (-2*M_PI)){
+		do{
+			rotation += 2*M_PI;
+		}while(rotation <= (-2*M_PI));
+	}
+	else if(rotation >= (2*M_PI)){
+		do{
+			rotation -= 2*M_PI;
+		}while(rotation >= (2*M_PI));
+	}
 	move((forceRight + forceLeft)*SPEED_MULT);
 }
 
@@ -109,8 +119,19 @@ void Creature::addOutputFeature(OutputId id, OutputFeature* output){
 	outputFeatures[id] = output;
 }
 
+void Creature::clearFeatures(){
+	inputFeatures.clear();
+	outputFeatures.clear();
+}
+
 void Creature::addFeelingBar(FeelingBarId id, FeelingBar* bar){
 	feelingBars[id] = bar;
+}
+
+double Creature::getFeelingValue(FeelingBarId id) const{
+	std::map<FeelingBarId, FeelingBar*> m = feelingBars;
+	double value = m[id]->getValue();
+	return value;
 }
 
 Position& Creature::getPosition(){
@@ -129,6 +150,10 @@ void Creature::setRotation(double rotation){
 	this->rotation = rotation;
 }
 
+double& Creature::getRotationRef(){
+	return rotation;
+}
+
 int Creature::getId() const{
 	return id;
 }
@@ -143,6 +168,11 @@ bool Creature::comparePosition(const Creature* c1, const Creature* c2){
 	p2 = c2->position;
 	return (p1 < p2);
 }
+
+bool Creature::compareHunger(const Creature* c1, const Creature* c2){
+	return (c1->getFeelingValue(FEELING_FOOD) > c2->getFeelingValue(FEELING_FOOD));
+}
+
 
 Position& Creature::getObjective(){
 	return objective;
