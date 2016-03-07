@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "../neuronNetwork/NeuronNetwork.hpp"
+#include "../neuronNetwork/NeuralNetwork.hpp"
 
 #define EGALITARY
 //#define FAVORITISM
@@ -12,15 +12,15 @@
 class Evolution{
 
 	private:
-		std::vector<NeuronNetwork> brains;
-		int nbCreaMax; //!< Maximum number of creatures allowed 
+		std::vector<NeuralNetwork> brains;
+		int nbCreaMax; //!< Maximum number of creatures allowed
 
-		vector<NeuronNetwork> egalitary(); //!< USED Algorithm of selection for each generation
-		vector<NeuronNetwork> favoritism(); //!< NOTUSED Algorithm of selection for each generation
+		vector<NeuralNetwork> egalitary(); //!< USED Algorithm of selection for each generation
+		vector<NeuralNetwork> favoritism(); //!< NOTUSED Algorithm of selection for each generation
 
 	public:
-		Evolution(std::vector<NeuronNetwork> brains, int nbCreaMax);
-		vector<NeuronNetwork> evolve();
+		Evolution(std::vector<NeuralNetwork> brains, int nbCreaMax);
+		vector<NeuralNetwork> evolve();
 };
 
 #endif

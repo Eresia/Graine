@@ -1,8 +1,0 @@
-<map id="src/creature/Creature.hpp" name="src/creature/Creature.hpp">
-<area shape="rect" id="node2" href="$_creature_8cpp.html" title="src/creature/Creature.cpp" alt="" coords="5,80,175,107"/>
-<area shape="rect" id="node3" href="$_controller_8hpp.html" title="src/evolution/Controller.hpp" alt="" coords="199,80,378,107"/>
-<area shape="rect" id="node4" href="$_controller_8cpp.html" title="src/evolution/Controller.cpp" alt="" coords="6,155,185,181"/>
-<area shape="rect" id="node5" href="$_graphic_8hpp.html" title="src/graphic/Graphic.hpp" alt="" coords="209,155,369,181"/>
-<area shape="rect" id="node7" href="$main_8cpp.html" title="src/main/main.cpp" alt="" coords="341,229,471,256"/>
-<area shape="rect" id="node6" href="$_graphic_8cpp.html" title="src/graphic/Graphic.cpp" alt="" coords="157,229,317,256"/>
-</map>

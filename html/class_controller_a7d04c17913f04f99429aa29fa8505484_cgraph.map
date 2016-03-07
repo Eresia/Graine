@@ -1,5 +1,0 @@
-<map id="Controller::update" name="Controller::update">
-<area shape="rect" id="node2" href="$class_map_objective.html#a562d6c466e62c06420bcfaaca4fd02d4" title="MapObjective::getObjective" alt="" coords="177,5,356,32"/>
-<area shape="rect" id="node3" href="$class_creature.html#a346e9f21aa3f16a444284dd617d19122" title="Creature::comparePosition" alt="" coords="179,56,355,83"/>
-<area shape="rect" id="node4" href="$class_evolution.html#a2a248cf8e24746d1791b1da45837f624" title="Evolution::evolve" alt="" coords="209,107,325,133"/>
-</map>

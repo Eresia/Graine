@@ -1,8 +1,0 @@
-<map id="src/map/mapType/MapObjective.hpp" name="src/map/mapType/MapObjective.hpp">
-<area shape="rect" id="node2" href="$_controller_8hpp.html" title="src/evolution/Controller.hpp" alt="" coords="129,80,308,107"/>
-<area shape="rect" id="node4" href="$_graphic_8hpp.html" title="src/graphic/Graphic.hpp" alt="" coords="261,155,421,181"/>
-<area shape="rect" id="node7" href="$_map_objective_8cpp.html" title="src/map/mapType/MapObjective.cpp" alt="" coords="383,80,617,107"/>
-<area shape="rect" id="node3" href="$_controller_8cpp.html" title="src/evolution/Controller.cpp" alt="" coords="5,155,184,181"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title="src/main/main.cpp" alt="" coords="157,229,286,256"/>
-<area shape="rect" id="node5" href="$_graphic_8cpp.html" title="src/graphic/Graphic.cpp" alt="" coords="311,229,471,256"/>
-</map>

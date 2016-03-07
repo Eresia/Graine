@@ -1,6 +1,0 @@
-<map id="MapObjective::getObjective" name="MapObjective::getObjective">
-<area shape="rect" id="node2" href="$class_controller.html#a7d04c17913f04f99429aa29fa8505484" title="Controller::update" alt="" coords="253,5,377,32"/>
-<area shape="rect" id="node5" href="$class_controller.html#a716433170fe95a627ae94c1f4e7568db" title="Controller::doneObjective" alt="" coords="232,56,399,83"/>
-<area shape="rect" id="node3" href="$class_graphic.html#aff970e256e90bb35918c438e4c57fa0b" title="Graphic::display_loop" alt="" coords="447,31,593,57"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="641,31,692,57"/>
-</map>

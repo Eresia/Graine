@@ -1,9 +1,0 @@
-<map id="src/evolution/Evolution.cpp" name="src/evolution/Evolution.cpp">
-<area shape="rect" id="node2" href="$_evolution_8hpp.html" title="Evolution.hpp" alt="" coords="159,80,257,107"/>
-<area shape="rect" id="node6" href="$_neuron_network_8hpp.html" title="../neuronNetwork/NeuronNetwork.hpp" alt="" coords="251,155,488,181"/>
-<area shape="rect" id="node7" href="$_neuron_layer_8hpp.html" title="NeuronLayer.hpp" alt="" coords="309,229,429,256"/>
-<area shape="rect" id="node13" href="$_bad_number_of_input_exception_8hpp.html" title="../exception/BadNumberOf\lInputException.hpp" alt="" coords="713,379,887,420"/>
-<area shape="rect" id="node15" href="$_not_same_struct_exception_8hpp.html" title="../exception/NotSameStruct\lException.hpp" alt="" coords="963,379,1146,420"/>
-<area shape="rect" id="node8" href="$_neuron_8hpp.html" title="Neuron.hpp" alt="" coords="385,304,473,331"/>
-<area shape="rect" id="node9" href="$_usefull_8hpp.html" title="../usefull/Usefull.hpp" alt="" coords="397,386,536,413"/>
-</map>

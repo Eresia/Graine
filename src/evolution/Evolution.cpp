@@ -1,6 +1,6 @@
 /**
 *	@file Evolution.cpp
-*	Purpose : Define the evolution of the NeuronNetwork.
+*	Purpose : Define the evolution of the NeuralNetwork.
 *
 *	@author Eresia & Monsieur
 *	@version 1.0
@@ -11,11 +11,11 @@
 
 using namespace std;
 
-Evolution::Evolution(vector<NeuronNetwork> brains, int nbCreaMax) : brains(brains), nbCreaMax(nbCreaMax){
+Evolution::Evolution(vector<NeuralNetwork> brains, int nbCreaMax) : brains(brains), nbCreaMax(nbCreaMax){
 
 }
 
-vector<NeuronNetwork> Evolution::evolve(){
+vector<NeuralNetwork> Evolution::evolve(){
 	#if defined(EGALITARY)
 		return egalitary();
 	#elif defined(FAVORITISM)
@@ -25,13 +25,13 @@ vector<NeuronNetwork> Evolution::evolve(){
 	#endif
 }
 
-vector<NeuronNetwork> Evolution::egalitary(){
-	vector<NeuronNetwork> result;
+vector<NeuralNetwork> Evolution::egalitary(){
+	vector<NeuralNetwork> result;
 	while((int) result.size() < nbCreaMax){
 		for(int i = 0; i < (int) brains.size(); i++){
 			for(int j = 0; j < (int) brains.size(); j++){
 				if(i != j){
-					result.push_back(NeuronNetwork(brains[i], brains[j]));
+					result.push_back(NeuralNetwork(brains[i], brains[j]));
 				}
 
 				if((int) result.size() >= nbCreaMax){
@@ -46,13 +46,13 @@ vector<NeuronNetwork> Evolution::egalitary(){
 	return result;
 }
 
-vector<NeuronNetwork> Evolution::favoritism(){
-	vector<NeuronNetwork> result;
+vector<NeuralNetwork> Evolution::favoritism(){
+	vector<NeuralNetwork> result;
 	/*while((int) result.size() < nbCreaMax){
 		for(int i = 0; i < (int) brains.size(); i++){
 			for(int j = 0; j < ((int) brains.size()-i); j++){
 				if(i != j){
-					result.push_back(NeuronNetwork(brains[i], brains[j]));
+					result.push_back(NeuralNetwork(brains[i], brains[j]));
 				}
 				else if((int) result.size() >= nbCreaMax){
 					break;

@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_material.html" title="Material" alt="" coords="5,81,73,108"/>
-<area shape="rect" id="node2" href="$class_air_material.html" title="AirMaterial" alt="" coords="131,5,215,32"/>
-<area shape="rect" id="node3" href="$class_dirt_material.html" title="DirtMaterial" alt="" coords="129,56,217,83"/>
-<area shape="rect" id="node4" href="$class_food_material.html" title="FoodMaterial" alt="" coords="124,107,221,133"/>
-<area shape="rect" id="node5" href="$class_water_material.html" title="WaterMaterial" alt="" coords="121,157,224,184"/>
-</map>

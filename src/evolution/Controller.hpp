@@ -40,11 +40,11 @@ class Controller{
 		int turn, turnMax;
 		std::vector<Creature*> creatures;
 		int idCounter;
-		std::vector<NeuronNetwork> lastBestBrains;
+		std::vector<NeuralNetwork> lastBestBrains;
 
 		void selectBest(); //!< Selecting the best specimens we have to construct
 		void createCreatures(); //!< Function of creature's creation
-		void createCreatures(vector<NeuronNetwork> brains);  //!< Creature creation but with NeuronNetwork associated
+		void createCreatures(vector<NeuralNetwork> brains);  //!< Creature creation but with NeuralNetwork associated
 		void addFeatures(Creature* creature); //!< Adding some features to the creature (may be usefull in use with the other part of the projet)
 		Position getSpawn(int number); //!< Get the spawning point of each creature
 		void printNbGen(); //!< Print the number of generation the simulation has traveled through

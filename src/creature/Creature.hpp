@@ -9,7 +9,7 @@
 #include <cmath>
 #include "../map/Map.hpp"
 #include "../map/Position.hpp"
-#include "../neuronNetwork/NeuronNetwork.hpp"
+#include "../neuronNetwork/NeuralNetwork.hpp"
 #include "feature/input/InputFeature.hpp"
 #include "feature/output/OutputFeature.hpp"
 #include "../map/case/material/FoodMaterial.hpp"
@@ -31,7 +31,7 @@ class Creature{
 		Map& map;
 		Position position;
 		double rotation;
-		NeuronNetwork brain;
+		NeuralNetwork brain;
 		std::map<InputId, InputFeature*> inputFeatures;
 		std::map<OutputId, OutputFeature*> outputFeatures;
 		std::map<FeelingBarId, FeelingBar*> feelingBars;
@@ -40,9 +40,9 @@ class Creature{
 
 	public:
 		Creature(int id, Map& map, Position position);
-		Creature(int id, Map& map, Position position, NeuronNetwork brain);
+		Creature(int id, Map& map, Position position, NeuralNetwork brain);
 		Creature(int id, Map& map, Position position, Position& objective);
-		Creature(int id, Map& map, Position position, NeuronNetwork brain, Position& objective);
+		Creature(int id, Map& map, Position position, NeuralNetwork brain, Position& objective);
 		Creature(Creature& copy);
 		void think();
 		void eat();
@@ -65,7 +65,7 @@ class Creature{
 		double& getRotationRef();
 		void setRotation(double rotation);
 		int getId() const;
-		NeuronNetwork& getBrain();
+		NeuralNetwork& getBrain();
 		Position& getObjective();
 		void setObjective(Position& objective);
 		void setObjective(double x, double y);

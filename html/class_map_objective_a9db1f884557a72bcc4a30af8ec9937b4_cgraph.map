@@ -1,4 +1,0 @@
-<map id="MapObjective::generate" name="MapObjective::generate">
-<area shape="rect" id="node2" href="$class_food_material.html#a5056a2f17ae3a2ab8b4704870d615c6e" title="FoodMaterial::getInstance" alt="" coords="212,5,384,32"/>
-<area shape="rect" id="node3" href="$class_food_material.html#a2b0c303d7f787f6fee018bf64b6fdd75" title="FoodMaterial::FoodMaterial" alt="" coords="432,5,612,32"/>
-</map>

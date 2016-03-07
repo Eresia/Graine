@@ -1,4 +1,0 @@
-<map id="Map" name="Map">
-<area shape="rect" id="node2" href="$class_map_objective.html" title="{MapObjective\n||+ MapObjective()\l+ generate()\l+ getObjective()\l}" alt="" coords="5,263,125,369"/>
-<area shape="rect" id="node3" href="$class_map_proc.html" title="{MapProc\n||+ MapProc()\l+ generate()\l}" alt="" coords="150,270,245,362"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="RandomClamped" name="RandomClamped">
-<area shape="rect" id="node2" href="$class_neuron.html#a79f9c4a073786fb9c4bd00ab39b7751a" title="Neuron::Neuron" alt="" coords="175,5,287,32"/>
-<area shape="rect" id="node3" href="$class_neuron.html#a652f08a44ffdd9c3ba8c0bc9d6810f03" title="Neuron::mutate" alt="" coords="175,56,286,83"/>
-<area shape="rect" id="node4" href="$class_neuron.html#a9cfc422c795d142914150af0b2385d85" title="Neuron::Neuron" alt="" coords="335,56,447,83"/>
-</map>

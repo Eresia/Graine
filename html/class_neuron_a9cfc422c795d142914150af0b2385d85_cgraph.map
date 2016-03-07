@@ -1,6 +1,0 @@
-<map id="Neuron::Neuron" name="Neuron::Neuron">
-<area shape="rect" id="node2" href="$class_neuron.html#ad564933d24c11a43aca09d30f4b96850" title="Neuron::crossOver" alt="" coords="165,5,295,32"/>
-<area shape="rect" id="node3" href="$class_neuron.html#a652f08a44ffdd9c3ba8c0bc9d6810f03" title="Neuron::mutate" alt="" coords="175,56,285,83"/>
-<area shape="rect" id="node4" href="$_usefull_8cpp.html#adc0187438adfc82a45465f650e40e303" title="RandomClamped" alt="" coords="343,56,464,83"/>
-<area shape="rect" id="node5" href="$_usefull_8cpp.html#a83894672e04ffc23849f3706ec8bc5e9" title="RandFloat" alt="" coords="512,56,593,83"/>
-</map>

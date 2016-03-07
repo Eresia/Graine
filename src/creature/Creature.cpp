@@ -11,11 +11,11 @@
 
 using namespace std;
 
-Creature::Creature(int id, Map& map, Position position) : Creature(id, map, position, NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
+Creature::Creature(int id, Map& map, Position position) : Creature(id, map, position, NeuralNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
 	objective = Position(0, 0);
 }
 
-Creature::Creature(int id, Map& map, Position position, NeuronNetwork brain) : id(id), map(map), position(position), rotation(0), brain(brain){
+Creature::Creature(int id, Map& map, Position position, NeuralNetwork brain) : id(id), map(map), position(position), rotation(0), brain(brain){
 	objective = Position(0, 0);
 	feelingBars[FEELING_FOOD] = NULL;
 	feelingBars[FEELING_SLEEP] = NULL;
@@ -23,11 +23,11 @@ Creature::Creature(int id, Map& map, Position position, NeuronNetwork brain) : i
 }
 
 Creature::Creature(int id, Map& map, Position position, Position& objective) : Creature(id, map, position,
-																	NeuronNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
+																	NeuralNetwork(BRAIN_INPUT, BRAIN_OUTPUT, BRAIN_HIDDEN_LAYER, BRAIN_NEURON_PER_LAYER)){
 	this->objective = objective;
 }
 
-Creature::Creature(int id, Map& map, Position position, NeuronNetwork brain, Position& objective) : Creature(id, map, position, brain){
+Creature::Creature(int id, Map& map, Position position, NeuralNetwork brain, Position& objective) : Creature(id, map, position, brain){
 	this->objective = objective;
 }
 
@@ -158,7 +158,7 @@ int Creature::getId() const{
 	return id;
 }
 
-NeuronNetwork& Creature::getBrain(){
+NeuralNetwork& Creature::getBrain(){
 	return brain;
 }
 

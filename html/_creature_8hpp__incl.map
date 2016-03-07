@@ -1,9 +1,0 @@
-<map id="src/creature/Creature.hpp" name="src/creature/Creature.hpp">
-<area shape="rect" id="node7" href="$_position_8hpp.html" title="../map/Position.hpp" alt="" coords="1333,80,1468,107"/>
-<area shape="rect" id="node8" href="$_neuron_network_8hpp.html" title="../neuronNetwork/NeuronNetwork.hpp" alt="" coords="663,80,901,107"/>
-<area shape="rect" id="node15" href="$_bad_number_of_input_exception_8hpp.html" title="../exception/BadNumberOf\lInputException.hpp" alt="" coords="264,304,439,345"/>
-<area shape="rect" id="node9" href="$_neuron_layer_8hpp.html" title="NeuronLayer.hpp" alt="" coords="722,155,842,181"/>
-<area shape="rect" id="node17" href="$_not_same_struct_exception_8hpp.html" title="../exception/NotSameStruct\lException.hpp" alt="" coords="5,304,188,345"/>
-<area shape="rect" id="node10" href="$_neuron_8hpp.html" title="Neuron.hpp" alt="" coords="678,229,766,256"/>
-<area shape="rect" id="node11" href="$_usefull_8hpp.html" title="../usefull/Usefull.hpp" alt="" coords="615,311,754,338"/>
-</map>
