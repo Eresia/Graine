@@ -18,12 +18,12 @@
 	#define PRINT_GEN
 #endif
 
-double RandFloat();
-double RandFloat(double min, double max);
-double RandFloat(double max);
-double RandomClamped();
-double RandomClamped(double min, double max);
-double RandomClamped(double max);
-int sumFrom0ToN(int n);
+double RandFloat(); //!< Give a random float number
+double RandFloat(double min, double max); //!< Give a random float number between to values (min and max)
+double RandFloat(double max); //!< Give a random float given a max value (max)
+double RandomClamped(); //!< Give a random minus a random value
+double RandomClamped(double min, double max); //!< Give a random minus a random value between to values
+double RandomClamped(double max); //!< Give a random minus a random value given a max values
+int sumFrom0ToN(int n); //!< Mathematical sum from 0 to n of given n
 
 #endif
