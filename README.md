@@ -11,7 +11,7 @@ Ce dépot est axé sur la partie Intelligence Artificielle
 Lien vers notre chaine Youtube pour observer l'avancement du projet :
 [WorldOfSwag](https://www.youtube.com/channel/UCm7d0uD_0_0Cycn0mbER40A)
 
-##Installation & Compilation
+##Installation d'Allegro
 
 Notre projet utilise la librairie graphique Allegro. Voici les instructions d'installations :
 
@@ -34,3 +34,10 @@ sudo make install
 ```shell
 sudo apt-get install liballegro-ttf5.0 liballegro-image5.0
 ```
+
+##Compilation & Exécution
+Mettez vous dans le dossier du projet et faites
+```shell
+make
+```
+Il suffit ensuite d'éxécuter test.out
