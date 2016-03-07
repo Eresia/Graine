@@ -1,4 +1,4 @@
-#World of Swag - Partie Intelligence Artificielle
+#Graine - Partie Intelligence Artificielle
 
 Projet de génération procédurale de créature devant apprendre à survivre dans un monde inconnu.
 
@@ -9,7 +9,7 @@ Ce projet est divisé en deux parties :
 Ce dépot est axé sur la partie Intelligence Artificielle
 
 Lien vers notre chaine Youtube pour observer l'avancement du projet :
-[WorldOfSwag](https://www.youtube.com/channel/UCm7d0uD_0_0Cycn0mbER40A)
+[Graine](https://www.youtube.com/channel/UCm7d0uD_0_0Cycn0mbER40A)
 
 ##Installation d'Allegro
 
