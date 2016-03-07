@@ -34,9 +34,15 @@ void Controller::update(){
 			turn++;
 		}
 		else{
+			int nbCreaUse;
 			vector<NeuralNetwork> newBrains;
 			selectBest();
-			Evolution evolution(lastBestBrains, nbCreaMax-lastBestBrains.size());
+			#ifdef USE_PARENT
+				nbCreaUse = nbCreaMax-lastBestBrains.size();
+			#else
+				nbCreaUse = nbCreaMax;
+			#endif
+			Evolution evolution(lastBestBrains, nbCreaUse);
 			newBrains = evolution.evolve();
 			createCreatures(newBrains);
 			turn = 0;
@@ -108,19 +114,29 @@ void Controller::createCreatures(){
 
 void Controller::createCreatures(vector<NeuralNetwork> brains){
 	MapObjective& mapObj = (MapObjective&) map;
-	if((int) brains.size() != nbCreaMax-((int) lastBestBrains.size())){
+	int nbCreaUse;
+	#ifdef USE_PARENT
+		nbCreaUse = nbCreaMax-((int) lastBestBrains.size());
+	#else
+		nbCreaUse = nbCreaMax;
+	#endif
+	if((int) brains.size() != nbCreaUse){
 		throw NotEnoughCreatureException("Evolution failed, " + to_string(brains.size()) + " brains given, " + to_string(nbCreaMax) + " attempt");
 	}
 
 	creatures.clear();
 	for(int i = 0; i < nbCreaMax; i++){
 		NeuralNetwork* brain;
-		if(i < (int) lastBestBrains.size()){
-			brain = &lastBestBrains[i];
-		}
-		else{
-			brain = &brains[i-lastBestBrains.size()];
-		}
+		#ifdef USE_PARENT
+			if(i < (int) lastBestBrains.size()){
+				brain = &lastBestBrains[i];
+			}
+			else{
+				brain = &brains[i-lastBestBrains.size()];
+			}
+		#else
+			brain = &brains[i];
+		#endif
 		Position pos;
 		Creature* crea;
 		pos = getSpawn(i);

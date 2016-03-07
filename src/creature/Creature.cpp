@@ -94,7 +94,7 @@ void Creature::move(double forceLeft, double forceRight){
 			rotation -= 2*M_PI;
 		}while(rotation >= (2*M_PI));
 	}
-	move((forceRight + forceLeft)*SPEED_MULT);
+	move((forceRight + forceLeft)*CREATURE_SPEED_MULT);
 }
 
 void Creature::turnLeft(){

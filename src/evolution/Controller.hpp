@@ -6,6 +6,7 @@
 #include <vector>
 #include "../map/Map.hpp"
 #include "../map/mapType/MapObjective.hpp"
+#include "../generation/Generation.hpp"
 #include "../creature/Creature.hpp"
 #include "../creature/FeelingBar.hpp"
 #include "../creature/feature/input/InputFeature.hpp"
@@ -20,14 +21,6 @@
 #include "../exception/NotEnoughBrainException.hpp"
 
 #define MIN_CREA 2
-
-//#define SPAWN_RANDOM
-
-#ifndef SPAWN_RANDOM
-	#define SPAWN_SPREADING 10.0
-#endif
-
-#define RANDOM_PERIMETER 10
 
 enum Rotation : bool {ROTATE_LEFT, ROTATE_RIGHT};
 

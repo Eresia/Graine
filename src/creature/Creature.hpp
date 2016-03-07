@@ -10,6 +10,7 @@
 #include "../map/Map.hpp"
 #include "../map/Position.hpp"
 #include "../neuronNetwork/NeuralNetwork.hpp"
+#include "../generation/Generation.hpp"
 #include "feature/input/InputFeature.hpp"
 #include "feature/output/OutputFeature.hpp"
 #include "../map/case/material/FoodMaterial.hpp"
@@ -21,8 +22,6 @@
 #define BRAIN_OUTPUT 3
 #define BRAIN_HIDDEN_LAYER 1
 #define BRAIN_NEURON_PER_LAYER 3
-
-#define SPEED_MULT 1.5
 
 class Creature{
 

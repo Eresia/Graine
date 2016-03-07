@@ -16,9 +16,9 @@ Evolution::Evolution(vector<NeuralNetwork> brains, int nbCreaMax) : brains(brain
 }
 
 vector<NeuralNetwork> Evolution::evolve(){
-	#if defined(EGALITARY)
+	#if defined(EGALITARY_EVOLUTION)
 		return egalitary();
-	#elif defined(FAVORITISM)
+	#elif defined(EGALITARY_EVOLUTION)
 		return favoritism();
 	#else
 		return egalitary();

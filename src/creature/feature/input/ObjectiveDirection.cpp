@@ -15,5 +15,5 @@ ObjectiveDirection::ObjectiveDirection(double& objective, int mult, double& crea
 
 void ObjectiveDirection::update(){
 	value = ((double) (objective*mult)) - creature;
-	value *= MULT_DATA;
+	value *= DIRECTION_DATA_MULT;
 }

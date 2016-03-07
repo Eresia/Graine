@@ -4,10 +4,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "../generation/Generation.hpp"
 #include "../neuronNetwork/NeuralNetwork.hpp"
-
-#define EGALITARY
-//#define FAVORITISM
 
 class Evolution{
 
