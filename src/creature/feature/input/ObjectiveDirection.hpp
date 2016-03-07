@@ -6,7 +6,7 @@
 #include <vector>
 #include "InputFeature.hpp"
 
-#define MULT_DATA 1.5
+#define MULT_DATA 1
 
 class ObjectiveDirection : public InputFeature{
 

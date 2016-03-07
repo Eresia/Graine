@@ -16,8 +16,8 @@
 
 using namespace std;
 
-#define NB_CREA 100
-#define NB_CREA_MAX 1000
+#define NB_CREA 5
+#define NB_CREA_MAX 10
 #define TURN_MAX 100
 
 int main(int argc, char** argv){

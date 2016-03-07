@@ -20,9 +20,9 @@
 #define BRAIN_INPUT 2
 #define BRAIN_OUTPUT 3
 #define BRAIN_HIDDEN_LAYER 1
-#define BRAIN_NEURON_PER_LAYER 6
+#define BRAIN_NEURON_PER_LAYER 3
 
-#define SPEED_MULT 1
+#define SPEED_MULT 1.5
 
 class Creature{
 
