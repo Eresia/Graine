@@ -12,10 +12,10 @@ class ObjectiveDirection : public InputFeature{
 	private:
 		double& objective;
 		double& creature;
-		int mult;
+		double mult;
 
 	public:
-		ObjectiveDirection(double& objective, int mult, double& creature);
+		ObjectiveDirection(double& objective, double mult, double& creature);
 		virtual void update();
 };
 

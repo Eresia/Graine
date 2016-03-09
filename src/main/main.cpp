@@ -13,12 +13,9 @@
 #include "../map/mapType/MapProc.hpp"
 #include "../evolution/Controller.hpp"
 #include "../exception/WindowNotCreatedException.hpp"
+#include "../generation/Generation.hpp"
 
 using namespace std;
-
-#define NB_CREA 5
-#define NB_CREA_MAX 10
-#define TURN_MAX 100
 
 int main(int argc, char** argv){
 
@@ -27,7 +24,7 @@ int main(int argc, char** argv){
 
 	#ifndef MANUAL_CREATURE
 		Controller control(map, NB_CREA, NB_CREA_MAX, TURN_MAX);
-		speed = 30;
+		speed = 1;
 	#else
 		Controller control(map);
 		speed = DEFAULT_SPEED;

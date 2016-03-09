@@ -9,7 +9,7 @@
 */
 #include "ObjectiveDirection.hpp"
 
-ObjectiveDirection::ObjectiveDirection(double& objective, int mult, double& creature) : InputFeature(), objective(objective), creature(creature), mult(mult){
+ObjectiveDirection::ObjectiveDirection(double& objective, double mult, double& creature) : InputFeature(), objective(objective), creature(creature), mult(mult){
 
 }
 

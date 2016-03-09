@@ -74,7 +74,7 @@ void Creature::doActions(){
 	move(outputFeatures[OUTPUT_MOVEMENT_LEFT]->getValue(), outputFeatures[OUTPUT_MOVEMENT_RIGHT]->getValue());
 }
 
-void Creature::move(int speed){
+void Creature::move(double speed){
 	position.updatePosition(sin(rotation) * speed, cos(rotation) * speed);
 	if(feelingBars[FEELING_FOOD] != NULL){
 		feelingBars[FEELING_FOOD]->removePercent(1);

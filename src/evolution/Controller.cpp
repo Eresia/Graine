@@ -60,13 +60,13 @@ void Controller::selectBest(){
 	int result = 0;
 
 	for(int i = 0; i < nbCreaMax; i++){
-		double x = (creatures[i]->getPosition().getX() - creatures[i]->getObjective().getX())/SIZE_IMAGE_H;
-		double y = (creatures[i]->getPosition().getY() - creatures[i]->getObjective().getY())/SIZE_IMAGE_W;
+		double x = (creatures[i]->getPosition().getX()/((double) SIZE_IMAGE_H))  - creatures[i]->getObjective().getX();
+		double y = (creatures[i]->getPosition().getY()/((double) SIZE_IMAGE_W))  - creatures[i]->getObjective().getY();
 		double dist = sqrt(x*x + y*y);
 		result += dist;
 	}
 
-	cout << result/((double) nbCreaMax) << endl;
+	//cout << result/((double) nbCreaMax) << endl;
 
 	partial_sort(creatures.begin(), creatures.begin() + nbCreaSelectMax, creatures.end(), Creature::compareHunger);
 	for(int i = 0; i < nbCreaSelectMax; i++){
@@ -240,7 +240,7 @@ Controller::Controller(Map& map) : map(map), nbCreaSelectMax(1), nbCreaMax(1){
 	creatures.push_back(new Creature(0, map, pos, mapObj.getObjective()));
 }
 
-void Controller::update(int speed){
+void Controller::update(double speed){
 	creatures[0]->move(speed);
 }
 

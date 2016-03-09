@@ -18,11 +18,6 @@
 #include "../exception/BadNumberOfInputException.hpp"
 #include "../exception/BadNumberOfOutputException.hpp"
 
-#define BRAIN_INPUT 2
-#define BRAIN_OUTPUT 3
-#define BRAIN_HIDDEN_LAYER 1
-#define BRAIN_NEURON_PER_LAYER 3
-
 class Creature{
 
 	private:
@@ -46,7 +41,7 @@ class Creature{
 		void think();
 		void eat();
 		void doActions();
-		void move(int speed);
+		void move(double speed);
 		void move(double forceLeft, double forceRight);
 		void turnLeft();
 		void turnRight();

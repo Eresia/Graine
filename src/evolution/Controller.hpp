@@ -56,7 +56,7 @@ class Controller{
 
 		//!< Debug methods
 		Controller(Map& map);
-		void update(int speed);
+		void update(double speed);
 		void update(Rotation rotation);
 };
 
