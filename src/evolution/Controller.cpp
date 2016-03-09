@@ -57,6 +57,16 @@ void Controller::update(){
 void Controller::selectBest(){
 	int nbSelect = 0;
 	lastBestBrains.clear();
+	int result = 0;
+
+	for(int i = 0; i < nbCreaMax; i++){
+		double x = (creatures[i]->getPosition().getX() - creatures[i]->getObjective().getX())/SIZE_IMAGE_H;
+		double y = (creatures[i]->getPosition().getY() - creatures[i]->getObjective().getY())/SIZE_IMAGE_W;
+		double dist = sqrt(x*x + y*y);
+		result += dist;
+	}
+
+	cout << result/((double) nbCreaMax) << endl;
 
 	partial_sort(creatures.begin(), creatures.begin() + nbCreaSelectMax, creatures.end(), Creature::compareHunger);
 	for(int i = 0; i < nbCreaSelectMax; i++){
@@ -84,6 +94,18 @@ void Controller::selectBest(){
 }
 
 bool Controller::doneObjective(){
+	#ifdef TEST_PROBA
+		#ifdef TOUCH_OBJECTIVE
+			return creatureIsTouchingObjective();
+		#else
+			return (nbGen >= NB_GEN_MAX);
+		#endif
+	#else
+		return creatureIsTouchingObjective();
+	#endif
+}
+
+bool Controller::creatureIsTouchingObjective(){
 	int nb = 0;
 	for(int i = 0; i < nbCreaMax; i++){
 		int xObj = creatures[i]->getObjective().getX();

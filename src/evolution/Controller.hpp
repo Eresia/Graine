@@ -2,6 +2,7 @@
 #define CONTROLLER
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <vector>
 #include "../map/Map.hpp"
@@ -41,6 +42,7 @@ class Controller{
 		void addFeatures(Creature* creature); //!< Adding some features to the creature (may be usefull in use with the other part of the projet)
 		Position getSpawn(int number); //!< Get the spawning point of each creature
 		void printNbGen(); //!< Print the number of generation the simulation has traveled through
+		bool creatureIsTouchingObjective();
 
 	public:
 		Controller(Map& map, int nbCreaSelectMax, int nbCreaMax, int turnMax);

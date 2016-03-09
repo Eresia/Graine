@@ -38,7 +38,7 @@ int main(int argc, char** argv){
 		Graphic* g = new Graphic(map, control, speed);
 		g->display_loop();
 		g->display_destroy();
-		#ifdef TEST_PROBA
+		#if defined(TEST_PROBA) && !defined(NB_GEN_MAX)
 			cout << control.getNbGen() << endl;
 		#endif
 	}

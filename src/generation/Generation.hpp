@@ -1,7 +1,25 @@
 #ifndef GENERATION
 #define GENERATION
 
-/*==================================== SPAWN INFORMATION*///
+/*==================================== Manual Control of Creatures*/
+//#define MANUAL_CREATURE
+
+#ifndef MANUAL_CREATURE
+	/*==================================== If launching for tests*/
+	//#define TEST_PROBA
+#endif
+
+#ifndef TEST_PROBA
+	/*==================================== If print the generation num*/
+	#define PRINT_GEN
+#else
+	//#define TOUCH_OBJECTIVE
+	#ifndef TOUCH_OBJECTIVE
+		#define NB_GEN_MAX 500
+	#endif
+#endif
+
+/*==================================== SPAWN INFORMATION*/
 //#define SPAWN_RANDOM
 
 #ifndef SPAWN_RANDOM
@@ -14,7 +32,7 @@
 
 
 /*==================================== EVOLUTION INFORMATION*/
-#define EGALITARY
+#define EGALITARY_EVOLUTION
 
 #ifndef EGALITARY_EVOLUTION
 	#define FAVORITISM_EVOLUTION

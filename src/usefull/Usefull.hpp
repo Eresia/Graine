@@ -8,16 +8,6 @@
 #include <iostream>
 #include <vector>
 
-//#define MANUAL_CREATURE
-
-#ifndef MANUAL_CREATURE
-	//#define TEST_PROBA
-#endif
-
-#ifndef TEST_PROBA
-	#define PRINT_GEN
-#endif
-
 double RandFloat(); //!< Give a random float number
 double RandFloat(double min, double max); //!< Give a random float number between to values (min and max)
 double RandFloat(double max); //!< Give a random float given a max value (max)
