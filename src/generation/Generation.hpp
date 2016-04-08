@@ -17,7 +17,7 @@
 	/*==================================== If print the generation num*/
 	#define PRINT_GEN
 #else
-	//#define TOUCH_OBJECTIVE
+	#define TOUCH_OBJECTIVE
 	#ifndef TOUCH_OBJECTIVE
 		#define NB_GEN_MAX 1500
 	#endif
@@ -30,7 +30,7 @@
 #define BRAIN_NEURON_PER_LAYER 3
 
 /*==================================== SPAWN INFORMATION*/
-#define SPAWN_RANDOM
+//#define SPAWN_RANDOM
 
 #ifndef SPAWN_RANDOM
 	#define SPAWN_SPREADING 12.0

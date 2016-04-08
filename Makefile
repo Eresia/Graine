@@ -27,10 +27,12 @@ $(launcher): compilation
 compilation:
 	@mkdir $(objectDir) -p
 	@for dir in $(directories); do \
-		if [ ! -e $$dir/Makefile ]; then \
-				cp Makefile_type $$dir/Makefile; \
+		if [ ! `ls $$dir | grep .cpp | wc -l` -eq 0 ]; then \
+			if [ ! -e $$dir/Makefile ]; then \
+					cp Makefile_type $$dir/Makefile; \
+			fi; \
+			make --no-print-directory -C $$dir objectDir="$(scriptDir)/$(objectDir)" headers="$(headers)" CC=$(CC) CFLAGS="$(CFLAGS)";	\
 		fi; \
-		make --no-print-directory -C $$dir objectDir="$(scriptDir)/$(objectDir)" headers="$(headers)" CC=$(CC) CFLAGS="$(CFLAGS)";	\
 	done
 
 clean_all: clean
@@ -41,10 +43,10 @@ clean:
 
 clean_error:
 	@for dir in $(directories); do \
-		rm $$dir/*.o; \
+		rm -f $$dir/*.o; \
 	done
 
 clean_Makefile:
 	@for dir in $(directories); do	\
-		rm $$dir/Makefile;	\
+		rm -f $$dir/Makefile;	\
 	done
