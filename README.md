@@ -11,6 +11,9 @@ Ce dépot est axé sur la partie Intelligence Artificielle
 Lien vers notre chaine Youtube pour observer l'avancement du projet :
 [Graine](https://www.youtube.com/channel/UCm7d0uD_0_0Cycn0mbER40A)
 
+Lien vers la documentation du projet :
+[Documentation](http://graine.lepesant.me)
+
 ##Installation d'Allegro
 
 Notre projet utilise la librairie graphique Allegro. Voici les instructions d'installations :
