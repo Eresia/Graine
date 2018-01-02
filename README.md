@@ -1,4 +1,4 @@
-#Graine - Partie Intelligence Artificielle
+# Graine - Partie Intelligence Artificielle
 
 Projet de génération procédurale de créature devant apprendre à survivre dans un monde inconnu.
 
@@ -18,11 +18,11 @@ Lien vers la documentation du projet :
 
 Notre projet utilise la librairie graphique Allegro. Voici les instructions d'installations :
 
-###Les dépendances :
+### Les dépendances :
 ```shell
 sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev cmake build-essential make libxcursor-dev cmake g++ freeglut3-dev libxcursor-dev libpng12-dev libjpeg-dev libfreetype6-dev libgtk2.0-dev libasound2-dev libpulse-dev libopenal-dev libflac-dev libdumb1-dev libvorbis-dev libphysfs-dev
 ```
-###La librairie en elle même
+### La librairie en elle même
 ```shell
 git clone https://github.com/liballeg/allegro5.git
 cd allegro
@@ -33,12 +33,12 @@ cmake ..
 make
 sudo make install
 ```
-###Enfin les extensions nécessaires :
+### Enfin les extensions nécessaires :
 ```shell
 sudo apt-get install liballegro-ttf5.0 liballegro-image5.0
 ```
 
-##Compilation & Exécution
+## Compilation & Exécution
 Mettez vous dans le dossier du projet et faites
 ```shell
 make
